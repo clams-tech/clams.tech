@@ -6,6 +6,7 @@ use axum::http::Method;
 use axum::routing::get;
 use axum::{http, Extension, Router};
 use clap::Parser;
+use futures_util::TryFutureExt;
 use nostr::prelude::ToBech32;
 use nostr::Keys;
 use reqwest::Client;
@@ -67,11 +68,10 @@ async fn main() -> anyhow::Result<()> {
     };
 
     // Invoice event stream
-    spawn(start_invoice_subscription(
-        state.db.clone(),
-        keys,
-        config.clone(),
-    ));
+    spawn(
+        start_invoice_subscription(state.db.clone(), keys, config.clone())
+            .map_err(|e| eprintln!("Failed to subscribe to invoice payments: {}", e.to_string())),
+    );
 
     let website_files_path = "/static";
     let website_service = ServeDir::new(website_files_path);
@@ -81,8 +81,8 @@ async fn main() -> anyhow::Result<()> {
         .expect("Failed to parse bind/port for webserver");
 
     let app = Router::new()
-        .route("/get-invoice/:hash/:name", get(get_invoice))
-        .route("/.well-known/lnurlp/:name", get(get_lnurl_pay))
+        .route("/get-invoice/{hash}/{name}", get(get_invoice))
+        .route("/.well-known/lnurlp/{name}", get(get_lnurl_pay))
         .fallback_service(website_service)
         .layer(Extension(state.clone()))
         .layer(

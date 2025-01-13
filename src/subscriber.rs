@@ -51,7 +51,7 @@ pub async fn start_invoice_subscription(db: Db, key: Keys, config: Config) -> an
 
         let url = format!(
             "ws://{}:{}/websocket",
-            config.phoenixd_host, config.phoenixd_password
+            config.phoenixd_host, config.phoenixd_port
         );
 
         // Create the request with authentication header
