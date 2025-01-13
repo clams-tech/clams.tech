@@ -1,3 +1,11 @@
+# Build frontend
+FROM node:20-slim AS website-builder
+WORKDIR /app/website
+COPY website/package*.json ./
+RUN npm install
+COPY website .
+RUN npm run build
+
 FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 WORKDIR /app
 
@@ -13,6 +21,9 @@ RUN cargo chef cook --release --recipe-path recipe.json
 COPY . .
 RUN cargo build --release --bin clams-tech-server
 
+# Copy built static files from website
+COPY --from=website-builder /app/static ./static
+
 # We do not need the Rust toolchain to run the binary!
 FROM debian:bookworm-slim AS runtime
 
@@ -24,6 +35,5 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 COPY --from=builder /app/target/release/clams-tech-server /usr/local/bin
-# Copy website files from the builder stage
-COPY --from=builder /app/website/build /website
+COPY --from=backend-builder /app/static ./static
 ENTRYPOINT ["/usr/local/bin/clams-tech-server"]

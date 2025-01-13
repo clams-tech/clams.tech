@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 readme = "README.md"
-exclude = ["website/**"]
+include = ["src/**/*.rs", "Cargo.toml", "static/**/*"]
 
 [[bin]]
 name = "clams-tech-server"

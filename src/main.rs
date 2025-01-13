@@ -73,7 +73,7 @@ async fn main() -> anyhow::Result<()> {
         config.clone(),
     ));
 
-    let website_files_path = "/website";
+    let website_files_path = "/static";
     let website_service = ServeDir::new(website_files_path);
 
     let addr: std::net::SocketAddr = format!("{}:{}", config.bind, &config.port)
