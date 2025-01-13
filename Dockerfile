@@ -35,5 +35,5 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 COPY --from=builder /app/target/release/clams-tech-server /usr/local/bin
-COPY --from=backend-builder /app/static ./static
+COPY --from=builder /app/static ./static
 ENTRYPOINT ["/usr/local/bin/clams-tech-server"]

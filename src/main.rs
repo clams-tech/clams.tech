@@ -1,7 +1,6 @@
-use std::fs::File;
-use std::io::{BufReader, Write};
-use std::path::PathBuf;
-
+use crate::config::*;
+use crate::routes::*;
+use crate::subscriber::start_invoice_subscription;
 use axum::http::Method;
 use axum::routing::get;
 use axum::{http, Extension, Router};
@@ -13,13 +12,13 @@ use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use serde_json::{from_reader, to_string};
 use sled::Db;
+use std::fs::File;
+use std::io::{BufReader, Write};
+use std::path::PathBuf;
 use tokio::spawn;
 use tower_http::cors::{Any, CorsLayer};
 use tower_http::services::ServeDir;
-
-use crate::config::*;
-use crate::routes::*;
-use crate::subscriber::start_invoice_subscription;
+use tower_http::services::ServeFile;
 
 mod config;
 mod db;
@@ -73,8 +72,12 @@ async fn main() -> anyhow::Result<()> {
             .map_err(|e| eprintln!("Failed to subscribe to invoice payments: {}", e.to_string())),
     );
 
-    let website_files_path = "/static";
-    let website_service = ServeDir::new(website_files_path);
+    let website_files_path = "./static";
+
+    let website_service = ServeDir::new(website_files_path)
+        .precompressed_br()
+        .precompressed_gzip()
+        .not_found_service(ServeFile::new(format!("{}/404.html", website_files_path)));
 
     let addr: std::net::SocketAddr = format!("{}:{}", config.bind, &config.port)
         .parse()
