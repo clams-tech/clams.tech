@@ -1,14 +1,14 @@
 <script lang="ts">
-	import ClamsAltIcon from '$lib/icons/clams-alt'
-	import NostrIcon from '$lib/icons/nostr'
-	import DiscordIcon from '$lib/icons/discord'
-	import XIcon from '$lib/icons/x'
-	import GithubIcon from '$lib/icons/github'
-	import { BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL } from '$lib/constants'
-	import ThemeToggle from '$lib/components/shared/ThemeToggle.svelte'
+	import ClamsAltIcon from '$lib/icons/clams-alt';
+	import NostrIcon from '$lib/icons/nostr';
+	import DiscordIcon from '$lib/icons/discord';
+	import XIcon from '$lib/icons/x';
+	import GithubIcon from '$lib/icons/github';
+	import { BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL } from '$lib/constants';
+	import ThemeToggle from '$lib/components/shared/ThemeToggle.svelte';
 
-	export let isRemoteRoute = false
-	$: backgroundStyles = isRemoteRoute ? 'bg-white dark:bg-black' : 'bg-white dark:bg-gray-900'
+	export let isRemoteRoute = false;
+	$: backgroundStyles = isRemoteRoute ? 'bg-white dark:bg-black' : 'bg-white dark:bg-gray-900';
 
 	let socials = [
 		{
@@ -19,10 +19,10 @@
 		{ icon: DiscordIcon, title: 'Discord', href: DISCORD_URL },
 		{ icon: GithubIcon, title: 'GitHub', href: GITHUB_URL },
 		{ icon: XIcon, title: 'Twitter', href: 'https://twitter.com/clamstech' }
-	]
+	];
 
-	const currentDate = new Date()
-	const currentYear = currentDate.getFullYear()
+	const currentDate = new Date();
+	const currentYear = currentDate.getFullYear();
 </script>
 
 <footer class={backgroundStyles} aria-labelledby="footer-heading">
@@ -38,12 +38,12 @@
 					{#each socials as { href, title, icon }}
 						<a
 							{href}
-							class="text-gray-600 dark:text-gray-300 hover:text-gray-400"
+							class="text-gray-600 hover:text-gray-400 dark:text-gray-300"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<span class="sr-only">{title}</span>
-							<div class="w-8 mx-2">
+							<div class="mx-2 w-8">
 								{@html icon}
 							</div>
 						</a>
@@ -58,7 +58,7 @@
 							<li>
 								<a
 									href="/remote"
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>Remote</a
 								>
 							</li>
@@ -70,7 +70,7 @@
 							<li>
 								<a
 									href={BLOG_URL}
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									target="_blank"
 									rel="noopener noreferrer">Blog</a
 								>
@@ -78,7 +78,7 @@
 							<li>
 								<a
 									href={DOCS_URL}
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									target="_blank"
 									rel="noopener noreferrer">Documentation</a
 								>
@@ -93,7 +93,7 @@
 							<li>
 								<a
 									href="/#note"
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>About</a
 								>
 							</li>
@@ -105,21 +105,21 @@
 							<li>
 								<a
 									href="/privacy"
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>Privacy Policy</a
 								>
 							</li>
 							<li>
 								<a
 									href="/terms"
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>Terms of Service</a
 								>
 							</li>
 							<li>
 								<a
 									href="/disclaimer"
-									class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>Disclaimer</a
 								>
 							</li>
@@ -128,9 +128,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="mt-16 border-t border-gray-200 dark:border-gray-600 pt-8 sm:mt-20 lg:mt-24">
+		<div class="mt-16 border-t border-gray-200 pt-8 dark:border-gray-600 sm:mt-20 lg:mt-24">
 			<ThemeToggle />
-			<div class="flex gap-1 mt-6 text-xs leading-5 text-gray-600 dark:text-gray-300">
+			<div class="mt-6 flex gap-1 text-xs leading-5 text-gray-600 dark:text-gray-300">
 				<p>&copy;</p>
 				<p>{`${currentYear} Clams, LLC. All rights reserved.`}</p>
 			</div>

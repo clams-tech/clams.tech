@@ -1,5 +1,6 @@
 use crate::db::{get_zap, upsert_zap};
 use crate::Config;
+use base64::{engine::general_purpose::STANDARD as BASE64, Engine as _};
 use bitcoin::hashes::sha256::Hash as Sha256;
 use bitcoin::hashes::Hash;
 use bitcoin::key::Secp256k1;
@@ -12,8 +13,9 @@ use nostr_sdk::Client;
 use serde::Deserialize;
 use sled::Db;
 use std::time::Duration;
+use tokio_tungstenite::connect_async;
+use tokio_tungstenite::tungstenite::client::IntoClientRequest;
 
-use tokio_tungstenite::{connect_async, tungstenite::http::Request};
 const RELAYS: [&str; 8] = [
     "wss://nostr.mutinywallet.com",
     "wss://relay.snort.social",
@@ -49,16 +51,17 @@ pub async fn start_invoice_subscription(db: Db, key: Keys, config: Config) -> an
     loop {
         println!("Starting invoice subscription");
 
-        let url = format!(
-            "ws://{}:{}/websocket",
-            config.phoenixd_host, config.phoenixd_port
-        );
+        let host = format!("{}:{}", config.phoenixd_host, config.phoenixd_port);
+        let url = format!("ws://{}/websocket", &host);
+        let auth_string = format!(":{}", config.phoenixd_password);
+        let auth_header = format!("Basic {}", BASE64.encode(auth_string.as_bytes()));
 
-        // Create the request with authentication header
-        let request = Request::builder()
-            .uri(url)
-            .header("Sec-WebSocket-Protocol", &config.phoenixd_password)
-            .body(())?;
+        let mut request = url.into_client_request().expect("Valid URL");
+
+        request.headers_mut().insert(
+            "Authorization",
+            auth_header.parse().expect("auth header can be parsed"),
+        );
 
         // Connect to the WebSocket server
         let (mut ws_stream, _) = connect_async(request).await?;

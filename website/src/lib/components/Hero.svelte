@@ -18,9 +18,7 @@
 				<div class="m-auto w-64">
 					{@html ClamsIcon}
 				</div>
-				<h2
-					class="mt-8 text-5xl font-bold tracking-tight text-gray-900 dark:text-white dark:text-white"
-				>
+				<h2 class="mt-8 text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
 					Visualize your Sats Flow
 				</h2>
 				<p class="m-auto mt-4 max-w-[600px] text-xl tracking-tight text-gray-900 dark:text-white">

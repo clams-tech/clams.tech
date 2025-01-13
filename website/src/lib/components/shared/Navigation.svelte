@@ -48,12 +48,12 @@
 			<div class="hidden lg:flex lg:gap-x-12">
 				<span
 					use:scrollTo={'#features'}
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>Features</span
 				>
 				<span
 					use:scrollTo={'#faq'}
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>FAQ</span
 				>
 			</div>
@@ -63,20 +63,19 @@
 			<div class="hidden lg:flex lg:gap-x-12">
 				<a
 					href="/#features"
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>Features</a
 				>
 				<a
 					href="/#faq"
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>FAQ</a
 				>
 			</div>
 		{/if}
 		<div class="hidden lg:flex">
 			<a class="ml-12" href={BLOG_URL} target="_blank" rel="noopener noreferrer">
-				<span
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+				<span class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>Blog</span
 				>
 			</a>
@@ -86,7 +85,7 @@
 				href={downloadHref}
 				target={isRemoteRoute ? '_blank' : ''}
 				rel={isRemoteRoute ? 'noopener noreferrer' : ''}
-				class="text-sm font-semibold leading-6 text-gray-900 dark:text-white dark:text-white"
+				class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 				>Get Started<span aria-hidden="true">&rarr;</span></a
 			>
 		</div>
