@@ -77,6 +77,7 @@ async fn main() -> anyhow::Result<()> {
     let website_service = ServeDir::new(website_files_path)
         .precompressed_br()
         .precompressed_gzip()
+        .append_index_html_on_directories(true)
         .not_found_service(ServeFile::new(format!("{}/404.html", website_files_path)));
 
     let addr: std::net::SocketAddr = format!("{}:{}", config.bind, &config.port)

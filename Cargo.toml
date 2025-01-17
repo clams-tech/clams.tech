@@ -10,6 +10,11 @@ include = ["src/**/*.rs", "Cargo.toml", "static/**/*"]
 name = "clams-tech-server"
 path = "src/main.rs"
 
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+
 [dependencies]
 anyhow = "1.0"
 axum = "^0"
