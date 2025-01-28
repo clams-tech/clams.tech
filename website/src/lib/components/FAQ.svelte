@@ -11,7 +11,7 @@
 		},
 		{
 			q: "Can I still use Clams if I don't see my wallet on the integration list?",
-			a: `For the initial beta launch, we support LND and Core Lightning nodes, but we plan to rapidly start adding support for many more wallets soon. The goal is to support all of the major wallets and Bitcoin exchanges in the ecosystem. We are also working on a custom import tool that will allow for importing transaction data for wallets that we do not directly support. If there is a wallet that you would like us to support, jump into our <a class="underline" target="_blank" rel="noopener noreferrer" href="https://discord.gg/eWfHuJZVaB">Discord</a> to let us know. If you are not currently running LND or CoreLN, it is probably best to wait until you see your favorite wallets directly supported to get value out of using Clams.`,
+			a: `Yes. The <a class="underline" target="_blank" rel="noopener noreferrer" href="https://blog.clams.tech/release-v0-3-0/#custom-imports">Custom Import</a> feature lets you manually import transaction data from wallets we don't yet support. If there is a wallet that you would like us to support, jump into our <a class="underline" target="_blank" rel="noopener noreferrer" href="https://discord.gg/eWfHuJZVaB">Discord</a> to let us know.`,
 			selected: false
 		},
 		{
@@ -57,7 +57,7 @@
 		},
 		{
 			q: 'If you are not monetizing user data, have no ads, and the app is free, how is that sustainable long term?',
-			a: 'Once Clams has a full feature set for importing, syncing, and tagging transaction data, we plan on adding additional, paid-only features that can be opted into if you feel that those features save you time and/or money. We also have some ideas around specific products for large businesses and enterprise customers. We want to build a sustainable business that aligns the incentives between us and our customers and not compromise on our values at the same time.',
+			a: `Once Clams is out of beta, we plan to offer a paid version. We also have some ideas around specific products for large businesses and enterprise customers. We want to build a sustainable business that aligns the incentives between us and our customers and not compromise on our values at the same time.`,
 			selected: false
 		}
 	];
@@ -70,7 +70,7 @@
 <ContentContainer title="Frequently asked questions" scrollTo="faq">
 	<div class="mx-auto divide-y divide-gray-900/10 dark:divide-gray-100/10">
 		<div class="mx-auto text-center">
-			<p class="text-base leading-7 text-gray-600 dark:text-gray-300">
+			<p class="text-base leading-7 text-gray-600 dark:text-gray-100">
 				Can’t find the answer you’re looking for? Reach out to us on <a
 					href={DISCORD_URL}
 					target="_blank"
@@ -125,7 +125,7 @@
 					</dt>
 					{#if selected}
 						<dd transition:slide class="mt-2 pr-12" id="faq-0">
-							<p class="text-base leading-7 text-gray-600 dark:text-gray-300">
+							<p class="text-base leading-7 text-gray-600 dark:text-gray-100">
 								{@html a}
 							</p>
 						</dd>

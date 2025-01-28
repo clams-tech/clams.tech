@@ -36,6 +36,7 @@
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^2.10.4",
 		"svelte-scrolling": "^1.5.1",
-		"sveltekit-i18n": "^2.4.2"
+		"sveltekit-i18n": "^2.4.2",
+		"tip-modal": "github:clams-tech/tip-modal"
 	}
 }
