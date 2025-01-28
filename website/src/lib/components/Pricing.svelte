@@ -1,44 +1,79 @@
 <script>
 	import ContentContainer from './shared/ContentContainer.svelte';
+	import { TipModal } from 'tip-modal';
+	import 'tip-modal/app.css';
 
-	const basic = [
-		{
-			category: 'Connections',
-			features: ['Unlimited']
-		},
-		{
-			category: 'Dashboard',
-			features: ['Balance tracker', 'Cost basis']
-		}
-	];
+	// const basic = [
+	// 	{
+	// 		category: 'Connections',
+	// 		features: ['Unlimited']
+	// 	},
+	// 	{
+	// 		category: 'Dashboard',
+	// 		features: ['Balance tracker', 'Cost basis']
+	// 	}
+	// ];
 
-	const pro = [
-		{
-			category: 'Connections',
-			features: ['Unlimited']
-		},
-		{
-			category: 'Dashboard',
-			features: ['Balance tracker', 'Cost basis']
-		},
-		{
-			category: 'Reports',
-			features: ['Cap gains', 'Profit and loss']
-		},
-		{
-			category: 'Operational',
-			features: [
-				'Secure data sharing',
-				'Multi-user access',
-				'Cross-device sync',
-				'Encrypted data backups'
-			]
-		}
-	];
+	// const pro = [
+	// 	{
+	// 		category: 'Connections',
+	// 		features: ['Unlimited']
+	// 	},
+	// 	{
+	// 		category: 'Dashboard',
+	// 		features: ['Balance tracker', 'Cost basis']
+	// 	},
+	// 	{
+	// 		category: 'Reports',
+	// 		features: ['Cap gains', 'Profit and loss']
+	// 	},
+	// 	{
+	// 		category: 'Operational',
+	// 		features: [
+	// 			'Secure data sharing',
+	// 			'Multi-user access',
+	// 			'Cross-device sync',
+	// 			'Encrypted data backups'
+	// 		]
+	// 	}
+	// ];
+
+	let showModal = false;
+
+	function openModal() {
+		showModal = true;
+	}
+
+	function closeModal() {
+		showModal = false;
+	}
 </script>
 
 <ContentContainer title="Pricing" scrollTo="pricing">
-	<div class="mx-auto flex max-w-5xl flex-wrap justify-between gap-4">
+	<div
+		class="my-12 flex flex-col items-center text-center text-lg leading-8 text-gray-600 dark:text-gray-100"
+	>
+		<p class="space-y-4">While the app is in beta, we're adopting a Value for Value (V4V) model.</p>
+		<p class="space-y-4">
+			All features are free, and you can support our efforts using the button below.
+		</p>
+		<p class="space-y-4">
+			Once we're out of beta, we’ll introduce a yearly subscription, with beta testers receiving a
+			discount.
+		</p>
+		<TipModal {showModal} {openModal} {closeModal}>
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<div on:click={openModal} slot="button" class="mt-8 flex justify-center">
+				<button
+					class="text-md rounded-md bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+				>
+					Donate
+				</button>
+			</div>
+		</TipModal>
+	</div>
+	<!-- <div class="mx-auto flex max-w-5xl flex-wrap justify-between gap-4">
 		<section class="w-full p-8 md:flex-1">
 			<h3 id="tier-basic" class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
 				Basic
@@ -97,7 +132,6 @@
 			>
 				Coming Soon...
 			</div>
-			>
 			<ul role="list" class="mt-10 space-y-4 text-sm leading-6 text-gray-900 dark:text-white">
 				{#each pro as { category, features }}
 					<li class="flex flex-col gap-2">
@@ -128,5 +162,5 @@
 				{/each}
 			</ul>
 		</section>
-	</div>
+	</div> -->
 </ContentContainer>

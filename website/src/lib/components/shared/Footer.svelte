@@ -33,12 +33,12 @@
 				<div class="w-12">
 					{@html ClamsAltIcon}
 				</div>
-				<p class="leading-6 text-gray-600 dark:text-gray-300">Building for a Bitcoin Standard.</p>
+				<p class="leading-6 text-gray-600 dark:text-gray-100">Building for a Bitcoin Standard.</p>
 				<div class="flex items-center space-x-6">
 					{#each socials as { href, title, icon }}
 						<a
 							{href}
-							class="text-gray-600 hover:text-gray-400 dark:text-gray-300"
+							class="text-gray-600 hover:text-gray-400 dark:text-gray-100"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -55,6 +55,13 @@
 					<div>
 						<h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Apps</h3>
 						<ul class="mt-6 space-y-4">
+							<li>
+								<a
+									href="/downloads"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
+									>Clams</a
+								>
+							</li>
 							<li>
 								<a
 									href="/remote"
@@ -130,7 +137,7 @@
 		</div>
 		<div class="mt-16 border-t border-gray-200 pt-8 dark:border-gray-600 sm:mt-20 lg:mt-24">
 			<ThemeToggle />
-			<div class="mt-6 flex gap-1 text-xs leading-5 text-gray-600 dark:text-gray-300">
+			<div class="mt-6 flex gap-1 text-xs leading-5 text-gray-600 dark:text-gray-100">
 				<p>&copy;</p>
 				<p>{`${currentYear} Clams, LLC. All rights reserved.`}</p>
 			</div>
