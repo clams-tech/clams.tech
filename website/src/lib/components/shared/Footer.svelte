@@ -104,6 +104,13 @@
 									>About</a
 								>
 							</li>
+							<li>
+								<a
+									href="/clams_brand_assets.zip"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
+									>Brand Assets</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="mt-10 md:mt-0">
