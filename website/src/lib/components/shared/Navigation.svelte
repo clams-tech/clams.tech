@@ -5,6 +5,7 @@
 
 	export let isRemoteRoute = false;
 	export let isDownloadsRoute = false;
+	export let isLegalRoute = false;
 	$: downloadHref = isRemoteRoute ? REMOTE_APP_URL : '/downloads';
 	let showMobileMenu = false;
 </script>
@@ -44,7 +45,7 @@
 			</button>
 		</div>
 		<!-- Home route -->
-		{#if !isRemoteRoute && !isDownloadsRoute}
+		{#if !isRemoteRoute && !isDownloadsRoute && !isLegalRoute}
 			<div class="hidden lg:flex lg:gap-x-12">
 				<span
 					use:scrollTo={'#features'}
@@ -63,8 +64,8 @@
 				>
 			</div>
 		{/if}
-		<!-- Download route -->
-		{#if isDownloadsRoute}
+		<!-- Download || legal document route -->
+		{#if isDownloadsRoute || isLegalRoute}
 			<div class="hidden lg:flex lg:gap-x-12">
 				<a
 					href="/#features"
@@ -135,7 +136,7 @@
 			<div class="mt-6 flow-root">
 				<div class="-my-6 divide-y divide-gray-500/10">
 					<!-- Home route -->
-					{#if !isRemoteRoute && !isDownloadsRoute}
+					{#if !isRemoteRoute && !isDownloadsRoute && !isLegalRoute}
 						<div class="space-y-2 py-6">
 							<a
 								on:click={() => (showMobileMenu = false)}
@@ -165,8 +166,8 @@
 							>
 						</div>
 					{/if}
-					<!-- Download route -->
-					{#if isDownloadsRoute}
+					<!-- Download route || legal doc route -->
+					{#if isDownloadsRoute || isLegalRoute}
 						<div class="space-y-2 py-6">
 							<a
 								on:click={() => (showMobileMenu = false)}
