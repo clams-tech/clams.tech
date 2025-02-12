@@ -22,12 +22,12 @@
 		{
 			name: 'Core Lightning',
 			icon: CoreLightningIcon,
-			link: 'https://corelightning.org/'
+			link: 'https://www.youtube.com/watch?v=bduhordWO7I'
 		},
 		{
 			name: 'LND',
 			icon: LndIcon,
-			link: 'https://lightning.engineering/'
+			link: 'https://www.youtube.com/watch?v=r8JC4gNlObY'
 		},
 		{
 			name: 'Nostr Wallet Connect',
@@ -37,7 +37,7 @@
 		{
 			name: 'Cashu',
 			icon: CashuIcon,
-			link: 'https://cashu.space/'
+			link: 'https://blog.clams.tech/release-v0-3-0/#cashu-nip60-connection'
 		},
 		{
 			name: 'Custom Import',
