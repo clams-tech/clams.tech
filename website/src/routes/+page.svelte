@@ -8,6 +8,7 @@
 	import FAQ from '$lib/components/FAQ.svelte';
 	import Note from '$lib/components/Note.svelte';
 	import OpenSource from '$lib/components/OpenSource.svelte';
+	import MailingList from '$lib/components/MailingList.svelte';
 </script>
 
 <svelte:head>
@@ -23,3 +24,4 @@
 <FAQ />
 <Note />
 <OpenSource />
+<MailingList />
