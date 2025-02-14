@@ -36,10 +36,10 @@
         <ul class='list-decimal list-inside ml-4 mt-2 mb-2 flex flex-col gap-2'>
             <li>Older CoreLN on-chain transactions sometimes do not have a timestamp, so we need to look up a block by its height to get the timestamp. No real metadata is leaked here other than that you are interested in a particular block.</li>
             <li>LND nodes will often not have the on-chain transaction details of a channel close, so we need to look up the full transaction by its hash. This leaks that this hash is of interest to you.</li>
-            <li>We look up historical Bitcoin price data from the coincap API. We make a single request with a date range from the first to the last transaction in your data set. This does not really leak any specific information since we are not looking up specific timestamps.</li>
+            <li>We retrieve historical Bitcoin price data from the Bitstamp API and fall back to the Coinbase API if the Bitstamp API request fails. We make a single request with a date range from the first to the last transaction in your data set. This does not really leak any specific information since we are not looking up specific timestamps.</li>
         </ul>
 
-        For all required chain data lookups, for each request we randomly select from a list of public Electrum servers which is currently made up of mempool.space and blockstream. In a future update, we will allow users to input a custom list of Electrum servers they would like Clams to use instead. This would allow for using a locally running instance to prevent any metadata from leaving your device. We also recommend using a VPN while using the app so that the public Electrum servers cannot correlate your personal IP address with transaction metadata.
+        For all required chain data lookups, for each request we randomly select from a list of public Electrum servers which is currently made up of mempool.space, blockstream and bitaroo. In a future update, we will allow users to input a custom list of Electrum servers they would like Clams to use instead. This would allow for using a locally running instance to prevent any metadata from leaving your device. We also recommend using a VPN while using the app so that the public Electrum servers cannot correlate your personal IP address with transaction metadata.
 
         <p class='mt-2'>We will update this FAQ if we add any more requests to external services. We are also considering running our own Electrum instance for these lookups.</p>
         `,
