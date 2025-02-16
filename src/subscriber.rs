@@ -85,7 +85,7 @@ pub async fn start_invoice_subscription(db: Db, key: Keys, config: Config) -> an
                                     tokio::spawn(async move {
                                         let fut = handle_paid_invoice(
                                             &db,
-                                            hex::encode(payment.payment_hash),
+                                            payment.payment_hash,
                                             key.clone(),
                                         );
 
