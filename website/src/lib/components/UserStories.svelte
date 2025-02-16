@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PersonaOne from '$lib/images/persona-1.jpg'
-	import PersonaTwo from '$lib/images/persona-2.png'
-	import PersonaThree from '$lib/images/persona-3.jpg'
-	import ContentContainer from './shared/ContentContainer.svelte'
+	import PersonaOne from '$lib/images/persona-1.jpg';
+	import PersonaTwo from '$lib/images/persona-2.png';
+	import PersonaThree from '$lib/images/persona-3.jpg';
+	import ContentContainer from './shared/ContentContainer.svelte';
 
 	const users = [
 		{
@@ -23,16 +23,16 @@
 			name: 'Mike',
 			title: 'Accountant'
 		}
-	]
+	];
 </script>
 
 <ContentContainer title="We've heard you Bitcoiners">
-	<div class="m-auto flow-root mt-8 md:mt-12 lg:mx-0">
-		<div class="grid sm:grid-cols-1 md:grid-cols-3 gap-6">
+	<div class="m-auto mt-8 flow-root md:mt-12 lg:mx-0">
+		<div class="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
 			{#each users as { quote, img, name, title }}
 				<div class="sm:inline-block sm:w-full">
 					<figure
-						class="flex flex-col justify-between rounded-2xl bg-gray-50 dark:bg-gray-800 p-6 text-sm leading-6 h-full"
+						class="flex h-full flex-col justify-between rounded-2xl bg-gray-50 p-6 text-sm leading-6 dark:bg-gray-800"
 					>
 						<blockquote class="text-lg leading-8 text-gray-900 dark:text-white">
 							<p>
@@ -45,7 +45,7 @@
 								<div class="font-semibold text-gray-900 dark:text-white">
 									{name}
 								</div>
-								<div class="text-gray-600 dark:text-gray-300">{title}</div>
+								<div class="text-gray-600 dark:text-gray-100">{title}</div>
 							</div>
 						</figcaption>
 					</figure>

@@ -39,7 +39,7 @@
 				</div>
 				0
 			</span>
-			<span class="mt-3 font-medium text-gray-400 dark:text-gray-200">/ forever</span>
+			<span class="mt-3 font-medium text-gray-400 dark:text-gray-100">/ forever</span>
 		</div>
 		<hr class="border-1 mt-4" />
 		<div class="flex flex-col justify-between gap-3 pt-8">
@@ -74,7 +74,7 @@
 				</div>
 				TBD
 			</span>
-			<span class="mt-3 font-medium text-gray-400 dark:text-gray-200">/ year</span>
+			<span class="mt-3 font-medium text-gray-400 dark:text-gray-100">/ year</span>
 		</div>
 		<hr class="border-1 mt-4" />
 		<div class="flex flex-col justify-between gap-3 pt-8">

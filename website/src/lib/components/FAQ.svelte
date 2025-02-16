@@ -11,7 +11,7 @@
 		},
 		{
 			q: "Can I still use Clams if I don't see my wallet on the integration list?",
-			a: `For the initial beta launch, we support LND and Core Lightning nodes, but we plan to rapidly start adding support for many more wallets soon. The goal is to support all of the major wallets and Bitcoin exchanges in the ecosystem. We are also working on a custom import tool that will allow for importing transaction data for wallets that we do not directly support. If there is a wallet that you would like us to support, jump into our <a class="underline" target="_blank" rel="noopener noreferrer" href="https://discord.gg/eWfHuJZVaB">Discord</a> to let us know. If you are not currently running LND or CoreLN, it is probably best to wait until you see your favorite wallets directly supported to get value out of using Clams.`,
+			a: `Yes. The <a class="underline" target="_blank" rel="noopener noreferrer" href="https://blog.clams.tech/release-v0-3-0/#custom-imports">Custom Import</a> feature lets you manually import transaction data from wallets we don't yet support. If there is a wallet that you would like us to support, jump into our <a class="underline" target="_blank" rel="noopener noreferrer" href="https://discord.gg/eWfHuJZVaB">Discord</a> to let us know.`,
 			selected: false
 		},
 		{
@@ -36,10 +36,10 @@
         <ul class='list-decimal list-inside ml-4 mt-2 mb-2 flex flex-col gap-2'>
             <li>Older CoreLN on-chain transactions sometimes do not have a timestamp, so we need to look up a block by its height to get the timestamp. No real metadata is leaked here other than that you are interested in a particular block.</li>
             <li>LND nodes will often not have the on-chain transaction details of a channel close, so we need to look up the full transaction by its hash. This leaks that this hash is of interest to you.</li>
-            <li>We look up historical Bitcoin price data from the coincap API. We make a single request with a date range from the first to the last transaction in your data set. This does not really leak any specific information since we are not looking up specific timestamps.</li>
+            <li>We retrieve historical Bitcoin price data from the Bitstamp API and fall back to the Coinbase API if the Bitstamp API request fails. We make a single request with a date range from the first to the last transaction in your data set. This does not really leak any specific information since we are not looking up specific timestamps.</li>
         </ul>
 
-        For all required chain data lookups, for each request we randomly select from a list of public Electrum servers which is currently made up of mempool.space and blockstream. In a future update, we will allow users to input a custom list of Electrum servers they would like Clams to use instead. This would allow for using a locally running instance to prevent any metadata from leaving your device. We also recommend using a VPN while using the app so that the public Electrum servers cannot correlate your personal IP address with transaction metadata.
+        For all required chain data lookups, for each request we randomly select from a list of public Electrum servers which is currently made up of mempool.space, blockstream and bitaroo. In a future update, we will allow users to input a custom list of Electrum servers they would like Clams to use instead. This would allow for using a locally running instance to prevent any metadata from leaving your device. We also recommend using a VPN while using the app so that the public Electrum servers cannot correlate your personal IP address with transaction metadata.
 
         <p class='mt-2'>We will update this FAQ if we add any more requests to external services. We are also considering running our own Electrum instance for these lookups.</p>
         `,
@@ -57,7 +57,7 @@
 		},
 		{
 			q: 'If you are not monetizing user data, have no ads, and the app is free, how is that sustainable long term?',
-			a: 'Once Clams has a full feature set for importing, syncing, and tagging transaction data, we plan on adding additional, paid-only features that can be opted into if you feel that those features save you time and/or money. We also have some ideas around specific products for large businesses and enterprise customers. We want to build a sustainable business that aligns the incentives between us and our customers and not compromise on our values at the same time.',
+			a: `Once Clams is out of beta, we plan to offer a paid version. We also have some ideas around specific products for large businesses and enterprise customers. We want to build a sustainable business that aligns the incentives between us and our customers and not compromise on our values at the same time.`,
 			selected: false
 		}
 	];
@@ -70,7 +70,7 @@
 <ContentContainer title="Frequently asked questions" scrollTo="faq">
 	<div class="mx-auto divide-y divide-gray-900/10 dark:divide-gray-100/10">
 		<div class="mx-auto text-center">
-			<p class="text-base leading-7 text-gray-600 dark:text-gray-300">
+			<p class="text-base leading-7 text-gray-600 dark:text-gray-100">
 				Can’t find the answer you’re looking for? Reach out to us on <a
 					href={DISCORD_URL}
 					target="_blank"
@@ -125,7 +125,7 @@
 					</dt>
 					{#if selected}
 						<dd transition:slide class="mt-2 pr-12" id="faq-0">
-							<p class="text-base leading-7 text-gray-600 dark:text-gray-300">
+							<p class="text-base leading-7 text-gray-600 dark:text-gray-100">
 								{@html a}
 							</p>
 						</dd>

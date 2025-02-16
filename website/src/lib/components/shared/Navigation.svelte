@@ -5,6 +5,7 @@
 
 	export let isRemoteRoute = false;
 	export let isDownloadsRoute = false;
+	export let isLegalRoute = false;
 	$: downloadHref = isRemoteRoute ? REMOTE_APP_URL : '/downloads';
 	let showMobileMenu = false;
 </script>
@@ -44,12 +45,17 @@
 			</button>
 		</div>
 		<!-- Home route -->
-		{#if !isRemoteRoute && !isDownloadsRoute}
+		{#if !isRemoteRoute && !isDownloadsRoute && !isLegalRoute}
 			<div class="hidden lg:flex lg:gap-x-12">
 				<span
 					use:scrollTo={'#features'}
 					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>Features</span
+				>
+				<span
+					use:scrollTo={'#pricing'}
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+					>Pricing</span
 				>
 				<span
 					use:scrollTo={'#faq'}
@@ -58,13 +64,18 @@
 				>
 			</div>
 		{/if}
-		<!-- Download route -->
-		{#if isDownloadsRoute}
+		<!-- Download || legal document route -->
+		{#if isDownloadsRoute || isLegalRoute}
 			<div class="hidden lg:flex lg:gap-x-12">
 				<a
 					href="/#features"
 					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 					>Features</a
+				>
+				<a
+					href="/#pricing"
+					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+					>Pricing</a
 				>
 				<a
 					href="/#faq"
@@ -95,7 +106,7 @@
 		<!-- Background backdrop, show/hide based on slide-over state. -->
 		<div class="fixed inset-0 z-50"></div>
 		<div
-			class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-black sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+			class="fixed inset-y-0 right-0 z-50 h-screen w-full overflow-y-auto bg-white px-6 py-6 dark:bg-black sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 		>
 			<div class="flex items-center justify-between">
 				<a on:click={() => (showMobileMenu = false)} href="/" class="-m-1.5 p-1.5">
@@ -125,13 +136,19 @@
 			<div class="mt-6 flow-root">
 				<div class="-my-6 divide-y divide-gray-500/10">
 					<!-- Home route -->
-					{#if !isRemoteRoute && !isDownloadsRoute}
+					{#if !isRemoteRoute && !isDownloadsRoute && !isLegalRoute}
 						<div class="space-y-2 py-6">
 							<a
 								on:click={() => (showMobileMenu = false)}
 								href="#features"
 								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
 								>Features</a
+							>
+							<a
+								on:click={() => (showMobileMenu = false)}
+								href="#pricing"
+								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+								>Pricing</a
 							>
 							<a
 								on:click={() => (showMobileMenu = false)}
@@ -149,14 +166,20 @@
 							>
 						</div>
 					{/if}
-					<!-- Download route -->
-					{#if isDownloadsRoute}
+					<!-- Download route || legal doc route -->
+					{#if isDownloadsRoute || isLegalRoute}
 						<div class="space-y-2 py-6">
 							<a
 								on:click={() => (showMobileMenu = false)}
 								href="/#features"
 								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
 								>Features</a
+							>
+							<a
+								on:click={() => (showMobileMenu = false)}
+								href="/#pricing"
+								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+								>Pricing</a
 							>
 							<a
 								on:click={() => (showMobileMenu = false)}

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import AppScreenshotImage from '$lib/images/app-screenshot.jpeg'
-	import SyncIcon from '$lib/icons/features/sync'
-	import EnhanceIcon from '$lib/icons/features/enhance'
-	import VisualizeIcon from '$lib/icons/features/visualize'
-	import ReportsIcon from '$lib/icons/features/reports'
-	import ContentContainer from './shared/ContentContainer.svelte'
+	import AppScreenshotImage from '$lib/images/app-screenshot.jpeg';
+	import SyncIcon from '$lib/icons/features/sync';
+	import EnhanceIcon from '$lib/icons/features/enhance';
+	import VisualizeIcon from '$lib/icons/features/visualize';
+	import ReportsIcon from '$lib/icons/features/reports';
+	import ContentContainer from './shared/ContentContainer.svelte';
 
 	// @TODO update icons to the same ones used in How It Works component
 	const features = [
@@ -43,7 +43,7 @@
 			title: 'REPORTS',
 			highlights: ['Cost Basis Analysis.', 'Capital Gains.', 'Profit and Loss Statements.']
 		}
-	]
+	];
 </script>
 
 <ContentContainer title="Features" scrollTo="features">
@@ -59,7 +59,7 @@
 					Everything you need to live on a Bitcoin Standard.
 				</p>
 				<dl
-					class="mt-10 text-base leading-7 text-gray-600 dark:text-gray-300 lg:max-w-none grid sm:grid-cols-1 md:grid-cols-2 gap-8"
+					class="mt-10 grid gap-8 text-base leading-7 text-gray-600 dark:text-gray-100 sm:grid-cols-1 md:grid-cols-2 lg:max-w-none"
 				>
 					{#each features as { icon, title, highlights }, i}
 						<div class="relative pl-9">
@@ -70,12 +70,12 @@
 								<div class="flex flex-wrap">
 									{title}
 									{#if i === 3}
-										<p class="text-gray-600 dark:text-gray-300 ml-2">(coming soon)</p>
+										<p class="ml-2 text-gray-600 dark:text-gray-100">(coming soon)</p>
 									{/if}
 								</div>
 							</dt>
 							<dd>
-								<ul class="list-disc list-inside leading-6">
+								<ul class="list-inside list-disc leading-6">
 									{#each highlights as highlight}
 										<li>{highlight}</li>
 									{/each}
@@ -89,7 +89,7 @@
 		<img
 			src={AppScreenshotImage}
 			alt="Product screenshot"
-			class="overflow-hidden w-[48rem] max-w-none rounded-xl shadow-xl dark:shadow-indigo-500/50 ring-1 ring-white/10 dark:ring-white/20 sm:w-[57rem]"
+			class="w-[48rem] max-w-none overflow-hidden rounded-xl shadow-xl ring-1 ring-white/10 dark:shadow-indigo-500/50 dark:ring-white/20 sm:w-[57rem]"
 			width="2432"
 			height="1442"
 		/>
