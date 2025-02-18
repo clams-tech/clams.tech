@@ -3,6 +3,7 @@ use crate::routes::*;
 use crate::subscriber::start_invoice_subscription;
 use axum::http::Method;
 use axum::routing::get;
+use axum::routing::post;
 use axum::{http, Extension, Router};
 use clap::Parser;
 use futures_util::TryFutureExt;
@@ -87,6 +88,7 @@ async fn main() -> anyhow::Result<()> {
     let app = Router::new()
         .route("/get-invoice/{hash}/{name}", get(get_invoice))
         .route("/.well-known/lnurlp/{name}", get(get_lnurl_pay))
+        .route("/phoenix_payments_webhook", post(handle_payments_webhook))
         .fallback_service(website_service)
         .layer(Extension(state.clone()))
         .layer(

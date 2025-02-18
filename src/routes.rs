@@ -1,20 +1,26 @@
 use crate::db::{upsert_zap, Zap};
 use crate::State;
-use anyhow::anyhow;
+use anyhow::{anyhow, Result};
+use axum::body::Bytes;
 use axum::extract::{Path, Query};
-use axum::http::StatusCode;
+use axum::http::{HeaderMap, StatusCode};
 use axum::{Extension, Json};
 use base64::{engine::general_purpose::STANDARD as BASE64, Engine as _};
 use bitcoin::hashes::{sha256, Hash};
+use chrono::{DateTime, Utc};
+use hmac::{Hmac, Mac};
 use lightning_invoice::Bolt11Invoice;
 use lnurl::pay::PayResponse;
 use lnurl::Tag;
 use nostr::{Event, JsonUtil};
 use reqwest::header::AUTHORIZATION;
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
+use sha2::Sha256;
 use std::collections::HashMap;
 use std::str::FromStr;
+use std::time::Duration;
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -190,4 +196,201 @@ pub(crate) fn handle_anyhow_error(err: anyhow::Error) -> (StatusCode, Json<Value
         "reason": format!("{err}"),
     });
     (StatusCode::BAD_REQUEST, Json(err))
+}
+
+type HmacSha256 = Hmac<Sha256>;
+
+#[derive(Debug, Serialize)]
+struct DiscordWebhookMessage {
+    content: Option<String>,
+    embeds: Vec<DiscordEmbed>,
+}
+
+#[derive(Debug, Serialize)]
+struct DiscordEmbed {
+    title: String,
+    description: String,
+    color: i32,
+    fields: Vec<DiscordField>,
+}
+
+#[derive(Debug, Serialize)]
+struct DiscordField {
+    name: String,
+    value: String,
+    inline: bool,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WebhookPayload {
+    #[serde(rename = "type")]
+    event_type: String,
+    timestamp: i64,
+    amount_sat: i64,
+    payment_hash: String,
+    external_id: Option<String>,
+    payer_note: Option<String>,
+    payer_key: Option<String>,
+}
+
+impl WebhookPayload {
+    pub async fn send_to_discord(&self, webhook_url: &str) -> Result<()> {
+        let client = Client::new();
+
+        // Convert timestamp to readable format
+        let datetime = DateTime::from_timestamp(self.timestamp, 0).unwrap_or_else(|| Utc::now());
+        let formatted_time = datetime.format("%Y-%m-%d %H:%M:%S UTC").to_string();
+
+        // Create fields for the embed
+        let mut fields = vec![
+            DiscordField {
+                name: "Amount".to_string(),
+                value: format!("{} sats", self.amount_sat),
+                inline: true,
+            },
+            DiscordField {
+                name: "Payment Hash".to_string(),
+                value: self.payment_hash.clone(),
+                inline: true,
+            },
+            DiscordField {
+                name: "Timestamp".to_string(),
+                value: formatted_time,
+                inline: true,
+            },
+        ];
+
+        // Add optional fields if they exist
+        if let Some(external_id) = &self.external_id {
+            fields.push(DiscordField {
+                name: "External ID".to_string(),
+                value: external_id.clone(),
+                inline: true,
+            });
+        }
+
+        if let Some(note) = &self.payer_note {
+            fields.push(DiscordField {
+                name: "Payer Note".to_string(),
+                value: note.clone(),
+                inline: true,
+            });
+        }
+
+        if let Some(key) = &self.payer_key {
+            fields.push(DiscordField {
+                name: "Payer Key".to_string(),
+                value: key.clone(),
+                inline: true,
+            });
+        }
+
+        // Create the embed
+        let embed = DiscordEmbed {
+            title: format!("New {} Event", self.event_type),
+            description: "A payment has been received.".to_string(),
+            color: 0x00ff00, // Green color
+            fields,
+        };
+
+        // Create the final message
+        let message = DiscordWebhookMessage {
+            content: None,
+            embeds: vec![embed],
+        };
+
+        // Send the webhook
+        client
+            .post(webhook_url)
+            .json(&message)
+            .send()
+            .await?
+            .error_for_status()?;
+
+        Ok(())
+    }
+}
+
+#[derive(Debug)]
+enum WebhookError {
+    InvalidSignature,
+    ExpiredTimestamp,
+    MissingSignature,
+}
+
+impl From<WebhookError> for (StatusCode, String) {
+    fn from(err: WebhookError) -> Self {
+        match err {
+            WebhookError::InvalidSignature => {
+                (StatusCode::UNAUTHORIZED, "Invalid signature".to_string())
+            }
+            WebhookError::ExpiredTimestamp => (
+                StatusCode::BAD_REQUEST,
+                "Webhook timestamp too old".to_string(),
+            ),
+            WebhookError::MissingSignature => (
+                StatusCode::BAD_REQUEST,
+                "Missing signature header".to_string(),
+            ),
+        }
+    }
+}
+
+pub async fn handle_payments_webhook(
+    Extension(state): Extension<State>,
+    headers: HeaderMap,
+    body: Bytes,
+) -> Result<(), (StatusCode, String)> {
+    println!("Checking sig");
+
+    dbg!(&state.config);
+    // Extract signature from headers
+    let signature = headers
+        .get("x-phoenix-signature")
+        .ok_or(WebhookError::MissingSignature)?
+        .to_str()
+        .map_err(|_| WebhookError::InvalidSignature)?;
+
+    let secret_bytes = state.config.phoenixd_webhook_secret.as_bytes();
+
+    // Verify the signature
+    let decoded_signature = hex::decode(signature).map_err(|_| WebhookError::InvalidSignature)?;
+    let mut mac = HmacSha256::new_from_slice(secret_bytes).expect("Invalid secret key");
+    mac.update(&body);
+    mac.verify_slice(&decoded_signature)
+        .map_err(|_| WebhookError::InvalidSignature)?;
+
+    println!("Sig good");
+    // If signature is valid, process the payload
+    let webhook_payload: WebhookPayload = serde_json::from_slice(&body).map_err(|e| {
+        eprintln!("error deserializing: {}", e.to_string());
+        (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            "Failed to serialize payload".to_string(),
+        )
+    })?;
+
+    dbg!(&webhook_payload);
+
+    // Verify timestamp
+    const TIMESTAMP_TOLERANCE: Duration = Duration::from_secs(5 * 60);
+    let event_time = DateTime::<Utc>::from_timestamp(webhook_payload.timestamp / 1000, 0)
+        .ok_or(WebhookError::ExpiredTimestamp)?;
+    let now = Utc::now();
+    if (now - event_time) > chrono::Duration::from_std(TIMESTAMP_TOLERANCE).unwrap() {
+        return Err(WebhookError::ExpiredTimestamp.into());
+    }
+
+    if let Err(e) = webhook_payload
+        .send_to_discord(&state.config.discord_webhook_url)
+        .await
+    {
+        eprintln!(
+            "Error sending payment notification to discord webhook: {}",
+            e.to_string()
+        );
+    }
+
+    Ok(())
 }
