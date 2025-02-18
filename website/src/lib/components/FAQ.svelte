@@ -46,9 +46,9 @@
 			selected: false
 		},
 		{
-			q: 'How can I verify that my data remains private and never leaves my device?',
-			a: `There are many tools for monitoring network traffic coming from your device to ensure that your private data is not being sent to external servers. We are currently working on a tutorial video for how to do this with <a class="underline" target="_blank" rel="noopener noreferrer" href="https://www.wireshark.org/">Wireshark</a> so that you can follow along and verify for yourself.`,
-			selected: false
+  		q: 'How can I verify that my data remains private and never leaves my device?',
+  		a: `Watch this <a class="underline" href="https://www.youtube.com/watch?v=KfHqzAlbEVg&t=1s" target="_blank" rel="noopener noreferrer">video</a> showing how to monitor network activity with Clams, side by side with Little Snitch. More details about our commitment to user privacy can be found in this <a class="underline" href="https://blog.clams.tech/on-privacy" target="_blank" rel="noopener noreferrer">blog post</a>.`,
+  		selected: false
 		},
 		{
 			q: 'Does Clams include any trackers or analytics scripts?',
