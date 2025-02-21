@@ -18,9 +18,8 @@
 </script>
 
 <Navigation
+	isHomeRoute={page.url.pathname === '/' || page.url.pathname === ''}
 	isRemoteRoute={page.url.pathname.includes('remote')}
-	isDownloadsRoute={page.url.pathname.includes('downloads')}
-	isLegalRoute={page.url.pathname.includes('privacy') || page.url.pathname.includes('terms') || page.url.pathname.includes('disclaimer')}
 />
 <slot />
 <Footer isRemoteRoute={page.url.pathname.includes('remote')} />
