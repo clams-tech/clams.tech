@@ -14,8 +14,7 @@ const config = {
 		adapter: adapter({
 			pages: '../static',
 			assets: '../static',
-			precompress: true,
-			fallback: 'index.html'
+			precompress: true
 		}),
 		prerender: {
 			handleMissingId: 'ignore'
