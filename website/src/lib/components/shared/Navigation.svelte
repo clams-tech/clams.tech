@@ -1,12 +1,6 @@
 <script lang="ts">
-	import { scrollTo } from 'svelte-scrolling';
 	import ClamsAltIcon from '$lib/icons/clams-alt';
-	import { BLOG_URL, REMOTE_APP_URL } from '$lib/constants';
-
-	export let isHomeRoute = true;
-	export let isRemoteRoute = false;
-
-	$: downloadHref = isRemoteRoute ? REMOTE_APP_URL : '/downloads';
+	import { BLOG_URL } from '$lib/constants';
 
 	let showMobileMenu = false;
 </script>
@@ -45,61 +39,28 @@
 				</svg>
 			</button>
 		</div>
-		<!-- Home route -->
-		{#if isHomeRoute}
-			<div class="hidden lg:flex lg:gap-x-12">
-				<span
-					use:scrollTo={'#features'}
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>Features</span
-				>
-				<span
-					use:scrollTo={'#pricing'}
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>Pricing</span
-				>
-				<span
-					use:scrollTo={'#faq'}
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>FAQ</span
-				>
-			</div>
-		{/if}
-		<!-- Not Home route && Not Remote route  -->
-		{#if !isHomeRoute || isRemoteRoute}
-			<div class="hidden lg:flex lg:gap-x-12">
-				<a
-					href="/#features"
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>Features</a
-				>
-				<a
-					href="/#pricing"
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>Pricing</a
-				>
-				<a
-					href="/#faq"
-					class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>FAQ</a
-				>
-			</div>
-		{/if}
-		<div class="hidden lg:flex">
-			<a class="ml-12" href={BLOG_URL} target="_blank" rel="noopener noreferrer">
-				<span class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-					>Blog</span
-				>
-			</a>
-		</div>
-		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
+		<div class="hidden lg:flex lg:gap-x-12">
 			<a
-				href={downloadHref}
-				target={isRemoteRoute ? '_blank' : ''}
-				rel={isRemoteRoute ? 'noopener noreferrer' : ''}
-				class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-				>Get Started<span aria-hidden="true">&rarr;</span></a
+				href="/about"
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+				>About</a
 			>
+			<a
+				href="/app"
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">App</a
+			>
+			<a
+				href="/api"
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">API</a
+			>
+			<a
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+				href={BLOG_URL}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Blog
+			</a>
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
@@ -136,76 +97,32 @@
 			</div>
 			<div class="mt-6 flow-root">
 				<div class="-my-6 divide-y divide-gray-500/10">
-					<!-- Home route -->
-					{#if isHomeRoute}
-						<div class="space-y-2 py-6">
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="#features"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Features</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="#pricing"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Pricing</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="#faq"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>FAQ</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href={BLOG_URL}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Blog</a
-							>
-						</div>
-					{/if}
-					<!-- Not Home route && Not Remote route  -->
-					{#if !isHomeRoute || isRemoteRoute}
-						<div class="space-y-2 py-6">
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="/#features"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Features</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="/#pricing"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Pricing</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href="/#faq"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>FAQ</a
-							>
-							<a
-								on:click={() => (showMobileMenu = false)}
-								href={BLOG_URL}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-								>Blog</a
-							>
-						</div>
-					{/if}
-					<div class="py-6">
+					<div class="space-y-2 py-6">
 						<a
 							on:click={() => (showMobileMenu = false)}
-							href={downloadHref}
-							target={isRemoteRoute ? '_blank' : ''}
-							rel={isRemoteRoute ? 'noopener noreferrer' : ''}
-							class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-							>Get Started</a
+							href="/about"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>About</a
+						>
+						<a
+							on:click={() => (showMobileMenu = false)}
+							href="/app"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>App</a
+						>
+						<a
+							on:click={() => (showMobileMenu = false)}
+							href="/api"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>API</a
+						>
+						<a
+							on:click={() => (showMobileMenu = false)}
+							href={BLOG_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>Blog</a
 						>
 					</div>
 				</div>

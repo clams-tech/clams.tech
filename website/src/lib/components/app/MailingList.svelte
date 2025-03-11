@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 </script>
 
 <ContentContainer title="Never miss an update">

@@ -4,11 +4,12 @@
 	import DiscordIcon from '$lib/icons/discord';
 	import XIcon from '$lib/icons/x';
 	import GithubIcon from '$lib/icons/github';
-	import { BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL } from '$lib/constants';
+	import { API_DOCS_URL, BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL } from '$lib/constants';
 	import ThemeToggle from '$lib/components/shared/ThemeToggle.svelte';
 
-	export let isRemoteRoute = false;
-	$: backgroundStyles = isRemoteRoute ? 'bg-white dark:bg-black' : 'bg-white dark:bg-gray-900';
+	export let isAppRoute = false;
+
+	$: backgroundStyles = isAppRoute ? 'bg-white dark:bg-gray-900' : 'bg-white dark:bg-black'; // Default styles for other routes
 
 	let socials = [
 		{
@@ -53,13 +54,18 @@
 			<div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
 				<div class="md:grid md:grid-cols-2 md:gap-8">
 					<div>
-						<h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Apps</h3>
+						<h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Products</h3>
 						<ul class="mt-6 space-y-4">
 							<li>
 								<a
-									href="/downloads"
-									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
-									>Clams</a
+									href="/app"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white">App</a
+								>
+							</li>
+							<li>
+								<a
+									href="/api"
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white">API</a
 								>
 							</li>
 							<li>
@@ -84,10 +90,18 @@
 							</li>
 							<li>
 								<a
+									href={API_DOCS_URL}
+									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
+									target="_blank"
+									rel="noopener noreferrer">API Docs</a
+								>
+							</li>
+							<li>
+								<a
 									href={DOCS_URL}
 									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									target="_blank"
-									rel="noopener noreferrer">Documentation</a
+									rel="noopener noreferrer">Remote Docs</a
 								>
 							</li>
 						</ul>
@@ -99,7 +113,7 @@
 						<ul class="mt-6 space-y-4">
 							<li>
 								<a
-									href="/#note"
+									href="/about"
 									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									>About</a
 								>

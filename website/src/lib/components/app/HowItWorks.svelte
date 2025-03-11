@@ -3,7 +3,7 @@
 	import EnhanceIcon from '$lib/icons/enhance';
 	import VisualizeIcon from '$lib/icons/visualize';
 	import ReportIcon from '$lib/icons/report';
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 
 	const tiles = [
 		{

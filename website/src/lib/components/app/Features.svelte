@@ -4,7 +4,7 @@
 	import EnhanceIcon from '$lib/icons/features/enhance';
 	import VisualizeIcon from '$lib/icons/features/visualize';
 	import ReportsIcon from '$lib/icons/features/reports';
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 
 	// @TODO update icons to the same ones used in How It Works component
 	const features = [

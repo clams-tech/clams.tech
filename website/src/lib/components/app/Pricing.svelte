@@ -1,5 +1,5 @@
 <script>
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 	import { TipModal } from 'tip-modal';
 	import 'tip-modal/app.css';
 
