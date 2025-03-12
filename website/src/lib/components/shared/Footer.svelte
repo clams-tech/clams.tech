@@ -4,7 +4,7 @@
 	import DiscordIcon from '$lib/icons/discord';
 	import XIcon from '$lib/icons/x';
 	import GithubIcon from '$lib/icons/github';
-	import { API_DOCS_URL, BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL } from '$lib/constants';
+	import { API_DOCS_URL, BLOG_URL, DISCORD_URL, REMOTE_DOCS_URL, GITHUB_URL } from '$lib/constants';
 	import ThemeToggle from '$lib/components/shared/ThemeToggle.svelte';
 
 	export let isAppRoute = false;
@@ -98,7 +98,7 @@
 							</li>
 							<li>
 								<a
-									href={DOCS_URL}
+									href={REMOTE_DOCS_URL}
 									class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-white"
 									target="_blank"
 									rel="noopener noreferrer">Remote Docs</a

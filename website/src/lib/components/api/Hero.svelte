@@ -18,7 +18,10 @@
 				your Bitcoin app.
 			</p>
 			<div id="mc_embed_shell" class="flex items-center justify-center">
-				<div id="mc_embed_signup" class="w-full max-w-md rounded-lg border p-4 md:p-6">
+				<div
+					id="mc_embed_signup"
+					class="w-full max-w-md rounded-lg border border-gray-400 p-4 md:p-6"
+				>
 					<form
 						action="https://tech.us14.list-manage.com/subscribe/post?u=f8a848454e4e2bfaf4577f68f&amp;id=efb2bbd0c2&amp;f_id=002184e0f0"
 						method="post"
@@ -63,7 +66,7 @@
 									value=""
 								/>
 							</div>
-							<div class="mt-2">
+							<div class="mt-3">
 								<button
 									type="submit"
 									name="subscribe"

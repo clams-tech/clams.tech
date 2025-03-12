@@ -3,6 +3,7 @@
 	import Who from '$lib/components/api/Who.svelte';
 	import Features from '$lib/components/api/Features.svelte';
 	import GetStarted from '$lib/components/api/GetStarted.svelte';
+	import Code from '$lib/components/api/Code.svelte';
 	// import Pricing from '$lib/components/api/Pricing.svelte';
 </script>
 
@@ -10,6 +11,7 @@
 	<Hero />
 	<Who />
 	<Features />
+	<Code />
 	<!-- <Pricing /> -->
 	<GetStarted />
 </div>

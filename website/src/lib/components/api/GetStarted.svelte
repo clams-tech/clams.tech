@@ -1,4 +1,8 @@
-<section class="mx-auto mb-24 mt-24 max-w-5xl lg:px-6">
+<script>
+	import { API_DOCS_URL } from '$lib/constants';
+</script>
+
+<section class="mx-auto mb-24 mt-36 max-w-5xl lg:px-6">
 	<h1 class="text-center text-4xl font-bold">Get Started</h1>
 	<div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
 		<div>
@@ -6,7 +10,10 @@
 				<strong>Founders:</strong> Become an early partner for our closed beta.
 			</p>
 			<div id="mc_embed_shell" class="mt-4">
-				<div id="mc_embed_signup" class="w-full max-w-md rounded-lg border border p-4 md:p-6">
+				<div
+					id="mc_embed_signup"
+					class="w-full max-w-md rounded-lg border border-gray-400 p-4 md:p-6"
+				>
 					<form
 						action="https://tech.us14.list-manage.com/subscribe/post?u=f8a848454e4e2bfaf4577f68f&amp;id=efb2bbd0c2&amp;f_id=002184e0f0"
 						method="post"
@@ -51,7 +58,7 @@
 									value=""
 								/>
 							</div>
-							<div class="mt-2">
+							<div class="mt-3">
 								<button
 									type="submit"
 									name="subscribe"
@@ -72,10 +79,16 @@
 				<strong>Developers:</strong> Explore our API docs for full integration details.
 			</p>
 			<a
-				href="/docs"
-				class="mt-4 inline-block rounded-lg border border-white px-6 py-3 text-lg font-semibold transition hover:bg-white hover:text-gray-900"
-				>View API Docs</a
+				href={API_DOCS_URL}
+				rel="noopener noreferrer"
+				target="_blank"
+				class="mt-4 inline-block rounded-lg border bg-black px-6 py-3 text-lg font-semibold text-white transition
+	       hover:bg-gray-600
+	       dark:border-white dark:bg-white dark:text-black
+	       dark:hover:bg-gray-300"
 			>
+				View API Docs
+			</a>
 		</div>
 	</div>
 </section>
