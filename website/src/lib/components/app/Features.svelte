@@ -69,9 +69,6 @@
 								</div>
 								<div class="flex flex-wrap">
 									{title}
-									{#if i === 3}
-										<p class="ml-2 text-gray-600 dark:text-gray-100">(coming soon)</p>
-									{/if}
 								</div>
 							</dt>
 							<dd>
