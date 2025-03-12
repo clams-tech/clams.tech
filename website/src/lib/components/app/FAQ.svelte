@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { DISCORD_URL } from '$lib/constants';
 	import { fade, slide } from 'svelte/transition';
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 
 	const faqs = [
 		{
@@ -46,9 +46,9 @@
 			selected: false
 		},
 		{
-  		q: 'How can I verify that my data remains private and never leaves my device?',
-  		a: `Watch this <a class="underline" href="https://www.youtube.com/watch?v=KfHqzAlbEVg&t=1s" target="_blank" rel="noopener noreferrer">video</a> showing how to monitor network activity with Clams, side by side with Little Snitch. More details about our commitment to user privacy can be found in this <a class="underline" href="https://blog.clams.tech/on-privacy" target="_blank" rel="noopener noreferrer">blog post</a>.`,
-  		selected: false
+			q: 'How can I verify that my data remains private and never leaves my device?',
+			a: `Watch this <a class="underline" href="https://www.youtube.com/watch?v=KfHqzAlbEVg&t=1s" target="_blank" rel="noopener noreferrer">video</a> showing how to monitor network activity with Clams, side by side with Little Snitch. More details about our commitment to user privacy can be found in this <a class="underline" href="https://blog.clams.tech/on-privacy" target="_blank" rel="noopener noreferrer">blog post</a>.`,
+			selected: false
 		},
 		{
 			q: 'Does Clams include any trackers or analytics scripts?',

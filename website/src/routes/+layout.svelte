@@ -17,9 +17,6 @@
 	}
 </script>
 
-<Navigation
-	isHomeRoute={page.url.pathname === '/' || page.url.pathname === ''}
-	isRemoteRoute={page.url.pathname.includes('remote')}
-/>
+<Navigation />
 <slot />
-<Footer isRemoteRoute={page.url.pathname.includes('remote')} />
+<Footer isAppRoute={page.url.pathname.includes('app')} />

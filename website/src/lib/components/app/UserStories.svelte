@@ -2,7 +2,7 @@
 	import PersonaOne from '$lib/images/persona-1.jpg';
 	import PersonaTwo from '$lib/images/persona-2.png';
 	import PersonaThree from '$lib/images/persona-3.jpg';
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 
 	const users = [
 		{

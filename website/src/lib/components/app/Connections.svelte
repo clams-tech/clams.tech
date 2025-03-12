@@ -9,7 +9,7 @@
 	import StrikeIcon from '$lib/icons/connections/strike';
 	import UnchainedIcon from '$lib/icons/connections/unchained';
 	import WalletOfSatoshiIcon from '$lib/icons/connections/walletofsatoshi';
-	import ContentContainer from './shared/ContentContainer.svelte';
+	import ContentContainer from '../shared/ContentContainer.svelte';
 	import CashuIcon from '$lib/icons/connections/cashu';
 	import CustomImportIcon from '$lib/icons/connections/custom-import';
 
