@@ -19,7 +19,7 @@
 	];
 </script>
 
-<div class="flex h-screen w-screen items-center justify-center p-6">
+<div class="flex w-screen items-center justify-center p-6 py-32 md:h-screen md:py-6">
 	<div class="flex max-w-3xl flex-col gap-8">
 		<div class="ml-auto mr-auto w-64">
 			{@html ClamsIcon}
