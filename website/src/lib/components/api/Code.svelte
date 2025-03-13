@@ -34,7 +34,7 @@ await fetch('https://staging.api.clams.tech/v0/transactions', {
 	let tradeCodeCopied: boolean = false;
 	let tradeCode = `import fetch from 'node-fetch';
 
-const API_KEY = 'your-api-key';  
+const API_KEY = 'your-api-key';
 const TRADE = {
   userId: '550e8400-e29b-41d4-a716-446655440000',
   trades: [
@@ -87,7 +87,7 @@ await fetch('https://staging.api.clams.tech/v0/trades', {
 <section class="mx-auto mt-36 max-w-5xl lg:px-6">
 	<h2 class="text-center text-4xl font-bold">Code Examples</h2>
 
-	<p class="mt-12 text-center text-lg leading-relaxed">
+	<p class="mt-4 text-center text-lg leading-relaxed">
 		Capture user activity in real-time to surface insights and generate financial reports.
 		<a class="underline" href={API_DOCS_URL} rel="noopener noreferrer" target="_blank"
 			>Learn more.</a
@@ -96,9 +96,9 @@ await fetch('https://staging.api.clams.tech/v0/trades', {
 
 	<div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
 		<!-- Transaction example -->
-		<div class="space-y-4">
-			<h3 class="text-xl font-bold text-black dark:text-white">Post a Transaction</h3>
-			<div class="rounded-lg border border-gray-300 bg-gray-900 p-4 text-white">
+		<div class="flex flex-grow flex-col">
+			<h3 class="mb-2 text-xl font-bold text-black dark:text-white">Post a Transaction</h3>
+			<div class="h-full rounded-lg border border-gray-300 bg-gray-900 p-4 text-white">
 				<div class="relative mb-2 flex items-center justify-end">
 					{#if transactionCodeCopied}
 						<div
@@ -124,9 +124,9 @@ await fetch('https://staging.api.clams.tech/v0/trades', {
 			</div>
 		</div>
 		<!-- Trade example -->
-		<div class="space-y-4">
-			<h3 class="text-xl font-bold text-black dark:text-white">Post a Trade</h3>
-			<div class="rounded-lg border border-gray-300 bg-gray-900 p-4 text-white">
+		<div class="flex flex-grow flex-col">
+			<h3 class="mb-2 text-xl font-bold text-black dark:text-white">Post a Trade</h3>
+			<div class="h-full rounded-lg border border-gray-300 bg-gray-900 p-4 text-white">
 				<div class="relative mb-2 flex items-center justify-end">
 					{#if tradeCodeCopied}
 						<div

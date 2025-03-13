@@ -9,9 +9,9 @@
 			target="_self"
 			novalidate
 		>
-			<div id="mc_embed_signup_scroll">
-				<div class="mc-field-group flex flex-col space-y-2">
-					<label for="mce-EMAIL" class="text-left text-sm font-medium"
+			<div id="mc_embed_signup_scroll" class="flex w-full items-end gap-x-2">
+				<div class="mc-field-group flex w-full flex-col">
+					<label for="mce-EMAIL" class="mb-1 text-left text-sm font-medium font-semibold"
 						>Email Address <span class="text-red-500">*</span></label
 					>
 					<input
@@ -35,16 +35,14 @@
 				<div aria-hidden="true" class="hidden">
 					<input type="text" name="b_f8a848454e4e2bfaf4577f68f_efb2bbd0c2" tabindex="-1" value="" />
 				</div>
-				<div class="mt-6">
-					<button
-						type="submit"
-						name="subscribe"
-						id="mc-embedded-subscribe"
-						class="text-md block cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-center font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-					>
-						Apply for Beta 🚀
-					</button>
-				</div>
+				<button
+					type="submit"
+					name="subscribe"
+					id="mc-embedded-subscribe"
+					class="text-md block cursor-pointer text-nowrap rounded-md border border-indigo-600 bg-indigo-600 px-3 py-2 text-center font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+				>
+					Join 🚀
+				</button>
 			</div>
 		</form>
 	</div>
