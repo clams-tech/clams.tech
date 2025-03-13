@@ -6,7 +6,7 @@
 <section class="flex items-center justify-center md:h-screen">
 	<div class="relative isolate mx-auto max-w-2xl py-32 text-center">
 		<!-- Logo -->
-		<div class="ml-auto mr-auto w-64">
+		<div class="ml-auto mr-auto w-52 md:w-64">
 			{@html ClamsIcon}
 		</div>
 		<!-- Header -->
