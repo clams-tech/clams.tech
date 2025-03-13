@@ -13,7 +13,7 @@
 		<h1 class="mt-8 max-w-lg text-4xl font-bold">Effortless Accounting for Bitcoin</h1>
 		<!-- Beta CTA -->
 		<div class="m-auto mt-8 grid max-w-lg grid-cols-1 gap-4">
-			<p class="text-left text-lg md:text-xl">
+			<p class="text-center text-lg md:text-xl">
 				<strong>Join the Beta:</strong> Be one of the first to integrate advanced accounting into your
 				Bitcoin app.
 			</p>
