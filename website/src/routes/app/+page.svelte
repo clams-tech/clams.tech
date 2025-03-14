@@ -19,7 +19,7 @@
 <HowItWorks />
 <Pricing />
 <Connections />
-<UserStories />
+<!-- <UserStories /> -->
 <FAQ />
 <OpenSource />
 <MailingList />
