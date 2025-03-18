@@ -51,15 +51,14 @@
 
 <ContentContainer title="Pricing" scrollTo="pricing">
 	<div
-		class="my-12 flex flex-col items-center text-center text-lg leading-8 text-gray-600 dark:text-gray-100"
+		class="flex flex-col items-center text-center text-lg leading-8 text-gray-600 dark:text-gray-100"
 	>
 		<p class="space-y-4">While the app is in beta, we're adopting a Value for Value (V4V) model.</p>
 		<p class="space-y-4">
 			All features are free, and you can support our efforts using the button below.
 		</p>
 		<p class="space-y-4">
-			Once we're out of beta, we’ll introduce a yearly subscription, with beta testers receiving a
-			discount.
+			Once we're out of beta, we’ll introduce paid tiers, with beta testers receiving a discount.
 		</p>
 		<TipModal {showModal} {openModal} {closeModal}>
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
