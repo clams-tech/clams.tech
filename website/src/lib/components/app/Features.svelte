@@ -6,7 +6,6 @@
 	import ReportsIcon from '$lib/icons/features/reports';
 	import ContentContainer from '../shared/ContentContainer.svelte';
 
-	// @TODO update icons to the same ones used in How It Works component
 	const features = [
 		{
 			icon: SyncIcon,
@@ -15,7 +14,7 @@
 				'Unlimited Wallets and Transactions.',
 				'Automated Transaction Syncing.',
 				'Private Local Data Store.',
-				'Full Lightning and Bitcoin Support.'
+				'Full Bitcoin and Lightning Support.'
 			]
 		},
 		{
@@ -35,13 +34,18 @@
 				'Dynamic Sats Flow Dashboard.',
 				'Comprehensive Balance Tracking.',
 				'Interactive Charts for Insights.',
-				'Cost Basis.'
+				'Cost Basis and Capital Gains Analysis.'
 			]
 		},
 		{
 			icon: ReportsIcon,
-			title: 'REPORTS',
-			highlights: ['Cost Basis Analysis.', 'Capital Gains.', 'Profit and Loss Statements.']
+			title: 'REPORT',
+			highlights: [
+				'Cost Basis Analysis.',
+				'Capital Gains Reporting.',
+				'Profit and Loss Statements.',
+				'Exportable Reports for Tax & Audits.'
+			]
 		}
 	];
 </script>
@@ -53,10 +57,14 @@
 		<div class="lg:col-span-4 lg:pr-8">
 			<div class="">
 				<h2 class="text-base font-semibold leading-7 text-light-purple dark:text-dark-purple">
-					Bitcoin only
+					Bitcoin-Only Accounting
 				</h2>
-				<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-					Everything you need to live on a Bitcoin Standard.
+				<h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+					Built for Finance Teams
+				</h2>
+				<p class="m-auto mt-4 text-xl tracking-tight text-gray-900 dark:text-white">
+					A complete suite for accountants and CFOs managing Bitcoin treasuries and financial
+					reporting.
 				</p>
 				<dl
 					class="mt-10 grid gap-8 text-base leading-7 text-gray-600 dark:text-gray-100 sm:grid-cols-1 md:grid-cols-2 lg:max-w-none"

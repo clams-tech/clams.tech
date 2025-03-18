@@ -58,7 +58,7 @@
 			All features are free, and you can support our efforts using the button below.
 		</p>
 		<p class="space-y-4">
-			Once we're out of beta, we’ll introduce paid tiers, with beta testers receiving a discount.
+			When we exit beta, we’ll introduce paid tiers—beta testers will receive an exclusive discount.
 		</p>
 		<TipModal {showModal} {openModal} {closeModal}>
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
