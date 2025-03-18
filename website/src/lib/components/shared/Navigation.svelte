@@ -46,7 +46,7 @@
 				>About</a
 			>
 			<a
-				href="/app"
+				href="/"
 				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">App</a
 			>
 			<a
@@ -106,7 +106,7 @@
 						>
 						<a
 							on:click={() => (showMobileMenu = false)}
-							href="/app"
+							href="/"
 							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
 							>App</a
 						>
