@@ -71,13 +71,13 @@
 	<div class="mx-auto divide-y divide-gray-900/10 dark:divide-gray-100/10">
 		<div class="mx-auto text-center">
 			<p class="text-base leading-7 text-gray-600 dark:text-gray-100">
-				Can’t find the answer you’re looking for? Reach out to us on <a
+				Can’t find what you need? Join our <a
 					href={DISCORD_URL}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="font-semibold text-light-purple underline hover:text-indigo-500 dark:text-dark-purple"
-					>discord</a
-				>.
+					>Discord</a
+				> and ask us directly.
 			</p>
 		</div>
 		<dl class="mt-8 space-y-6 divide-y divide-gray-900/10 dark:divide-gray-100/10 md:mt-12">

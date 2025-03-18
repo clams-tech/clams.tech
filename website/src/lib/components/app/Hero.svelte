@@ -19,10 +19,10 @@
 					{@html ClamsIcon}
 				</div>
 				<h2 class="mt-8 text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-					Visualize your Sats Flow
+					Bitcoin Standard Accounting
 				</h2>
 				<p class="m-auto mt-4 max-w-[600px] text-xl tracking-tight text-gray-900 dark:text-white">
-					The best money deserves a dedicated accounting platform.
+					Built for accountants, CFOs, and finance teams managing Bitcoin.
 				</p>
 				<div class="m-auto mt-8 flex">
 					<a

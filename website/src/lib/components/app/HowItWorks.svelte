@@ -9,24 +9,23 @@
 		{
 			title: 'Sync',
 			description:
-				'Connect unlimited wallets to import all transaction data to a private local hub.',
+				'Connect unlimited wallets and automatically import transactions into a private local hub.',
 			icon: SyncIcon
 		},
 		{
 			title: 'Enhance',
 			description:
-				'Auto-convert data to double-entry standards; customize with metadata for categorization.',
+				'Auto-convert raw transaction data into structured, audit-ready financial records.',
 			icon: EnhanceIcon
 		},
 		{
 			title: 'Visualize',
-			description:
-				'Derive insights from the sats flow dashboard; customize charts to suit your needs.',
+			description: 'Gain real-time insights with customizable, interactive dashboards.',
 			icon: VisualizeIcon
 		},
 		{
 			title: 'Report',
-			description: 'Download reports for easy sharing with third parties; simplify tax season.',
+			description: 'Generate audit-ready reports for tax and financial planning.',
 			icon: ReportIcon
 		}
 	];
