@@ -46,14 +46,6 @@
 				>About</a
 			>
 			<a
-				href="/"
-				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">App</a
-			>
-			<a
-				href="/api"
-				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">API</a
-			>
-			<a
 				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 				href={BLOG_URL}
 				target="_blank"
@@ -61,6 +53,11 @@
 			>
 				Blog
 			</a>
+			<a
+				href="/downloads"
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+				>Downloads</a
+			>
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
@@ -106,23 +103,17 @@
 						>
 						<a
 							on:click={() => (showMobileMenu = false)}
-							href="/"
-							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-							>App</a
-						>
-						<a
-							on:click={() => (showMobileMenu = false)}
-							href="/api"
-							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-							>API</a
-						>
-						<a
-							on:click={() => (showMobileMenu = false)}
 							href={BLOG_URL}
 							target="_blank"
 							rel="noopener noreferrer"
 							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
 							>Blog</a
+						>
+						<a
+							on:click={() => (showMobileMenu = false)}
+							href="/downloads"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>Downloads</a
 						>
 					</div>
 				</div>
