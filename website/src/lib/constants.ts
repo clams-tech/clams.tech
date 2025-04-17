@@ -27,9 +27,6 @@ export const FEATURE_ICONS: {
 	Metadata: tag
 };
 
-export const REMOTE_APP_URL = 'https://remote.clams.tech/';
-export const REMOTE_DOCS_URL = 'https://docs.clams.tech/remote/';
-export const API_DOCS_URL = 'https://github.com/clams-tech/api-docs';
 export const BLOG_URL = 'https://blog.clams.tech';
 export const DISCORD_URL = 'https://discord.gg/eWfHuJZVaB';
 export const GITHUB_URL = 'https://github.com/clams-tech';
