@@ -1,3 +1,224 @@
+@import 'tailwindcss';
+@tailwind utilities;
+
+@theme {
+	--default-font-family: 'Synt Mono', 'sans-serif';
+	--font-synt: 'Synt', 'serif';
+	--font-synt-mono: 'Synt Mono', 'serif';
+
+	--text-xxs: 0.66rem;
+
+	/* Remove all default colors */
+	--color-*: initial;
+
+	/* BLACK and WHITE */
+	--color-white: #fff;
+	--color-black: #000;
+	--color-light-black: #212420;
+
+	/* ORIGINAL GREEN */
+	/* --color-green-light: #edf0eb;
+	--color-green-light-hover: #e3e9e1;
+	--color-green-light-active: #c6d2c2;
+	--color-green-normal: #466d39;
+	--color-green-normal-hover: #3f6233;
+	--color-green-normal-active: #38572e;
+	--color-green: #35522b;
+	--color-green-dark-hover: #2a4122;
+	--color-green-dark-active: #1f311a;
+	--color-green-darker: #192614; */
+
+	/* ORIGINAL RED */
+	/* --color-clams-red-light: #f6eced;
+	--color-clams-red-light-hover: #f2e3e3;
+	--color-clams-red-light-active: #e4c5c6;
+	--color-clams-red-normal: #a84546;
+	--color-clams-red-normal-hover: #973e3f;
+	--color-clams-red-normal-active: #863738;
+	--color-clams-red-dark: #7e3435;
+	--color-clams-red-dark-hover: #65292a;
+	--color-clams-red-dark-active: #4c1f1f;
+	--color-clams-red-darker: #3b1819; */
+
+	/* CLAMS GREEN */
+	--color-clams-green-light: #ade19b;
+	--color-clams-green-light-hover: #9ad885;
+	--color-clams-green-light-active: #81c969;
+	--color-clams-green-normal: #235811;
+	--color-clams-green-normal-hover: #1d490e;
+	--color-clams-green-normal-active: #173a0b;
+	--color-clams-green-dark: #133009;
+	--color-clams-green-dark-hover: #0b1e05;
+	--color-clams-green-dark-active: #040902;
+	--color-clams-green-darker: #02180a;
+
+	/* CLAMS RED */
+	--color-clams-red-light: #f2999a;
+	--color-clams-red-light-hover: #f28c8e;
+	--color-clams-red-light-active: #ed6567;
+	--color-clams-red-normal: #8f0709;
+	--color-clams-red-normal-hover: #810608;
+	--color-clams-red-normal-active: #720607;
+	--color-clams-red-dark: #570406;
+	--color-clams-red-dark-hover: #350203;
+	--color-clams-red-dark-active: #130101;
+	--color-clams-red-darker: #26040a;
+
+	/* BLUE */
+	/* --color-blue-light: #f2f3f6;
+	--color-blue-light-hover: #eceff9;
+	--color-blue-light-active: #e7defc;
+	--color-blue-normal: #7f99f4;
+	--color-blue-normal-hover: #7367cc;
+	--color-blue-normal-active: #6673c1;
+	--color-blue-dark: #5f71b7;
+	--color-blue-dark-hover: #4c4a92;
+	--color-blue-dark-active: #3f44ab;
+	--color-blue-darker: #2c3555; */
+	--color-blue-light: #a0b8ff;
+	--color-blue-light-hover: #8eaaff;
+	--color-blue-light-active: #7c9cff;
+	--color-blue-normal: #3a5dd9;
+	--color-blue-normal-hover: #3253c2;
+	--color-blue-normal-active: #2949ab;
+	--color-blue-dark: #1e3380;
+	--color-blue-dark-hover: #152561;
+	--color-blue-dark-active: #0c1742;
+	--color-blue-darker: #070d28;
+
+	/* PURPLE */
+	/* --color-purple-light: #f2f3f6;
+	--color-purple-light-hover: #f1f3f9;
+	--color-purple-light-active: #e7ebfc;
+	--color-purple-normal: #8f97f4;
+	--color-purple-normal-hover: #8f75dc;
+	--color-purple-normal-active: #7f69c8;
+	--color-purple-dark: #7762b7;
+	--color-purple-dark-hover: #6a59f2;
+	--color-purple-dark-active: #545efb;
+	--color-purple-darker: #383e55; */
+	--color-purple-light: #b6a0ff;
+	--color-purple-light-hover: #a894ff;
+	--color-purple-light-active: #9a88ff;
+	--color-purple-normal: #6035d9;
+	--color-purple-normal-hover: #552dc2;
+	--color-purple-normal-active: #4a25ab;
+	--color-purple-dark: #3a1c80;
+	--color-purple-dark-hover: #291361;
+	--color-purple-dark-active: #180a42;
+	--color-purple-darker: #0c0524;
+
+	/* RED */
+	/* --color-red-light: #fdf1f2;
+	--color-red-light-hover: #fceaeb;
+	--color-red-light-active: #f8d5d5;
+	--color-red-normal: #e87678;
+	--color-red-normal-hover: #d16a6c;
+	--color-red-normal-active: #ba5e60;
+	--color-red-dark: #ae595a;
+	--color-red-dark-hover: #8b4748;
+	--color-red-dark-active: #683536;
+	--color-red-darker: #51292a; */
+	--color-red-light: #ff9a9c;
+	--color-red-light-hover: #ff8a8c;
+	--color-red-light-active: #ff7a7c;
+	--color-red-normal: #d92a2d;
+	--color-red-normal-hover: #c22526;
+	--color-red-normal-active: #ab2022;
+	--color-red-dark: #801719;
+	--color-red-dark-hover: #611012;
+	--color-red-dark-active: #42090a;
+	--color-red-darker: #280506;
+
+	/* ORANGE */
+	/* --color-orange-light: #fef6f1;
+	--color-orange-light-hover: #fdf2ea;
+	--color-orange-light-active: #fbe4d4;
+	--color-orange-normal: #f1a873;
+	--color-orange-normal-hover: #d99768;
+	--color-orange-normal-active: #c1865c;
+	--color-orange-dark: #b57e56;
+	--color-orange-dark-hover: #916545;
+	--color-orange-dark-active: #6c4c34;
+	--color-orange-darker: #543b28; */
+	--color-orange-light: #ffb78a;
+	--color-orange-light-hover: #ffa97a;
+	--color-orange-light-active: #ff9b6a;
+	--color-orange-normal: #d9702a;
+	--color-orange-normal-hover: #c26525;
+	--color-orange-normal-active: #ab5a21;
+	--color-orange-dark: #804319;
+	--color-orange-dark-hover: #612f12;
+	--color-orange-dark-active: #421e0a;
+	--color-orange-darker: #251105;
+
+	/* GREEN */
+	/* --color-green-light: #f2fbf3;
+	--color-green-light-hover: #ecf9ed;
+	--color-green-light-active: #d8f3da;
+	--color-green-normal: #81d788;
+	--color-green-normal-hover: #74c27a;
+	--color-green-normal-active: #67ac6d;
+	--color-green-dark: #61a166;
+	--color-green-dark-hover: #4d8152;
+	--color-green-dark-active: #3a613d;
+	--color-green-darker: #2d4b30; */
+	--color-green-light: #9aff9e;
+	--color-green-light-hover: #8aff8e;
+	--color-green-light-active: #7aff7e;
+	--color-green-normal: #2ad932;
+	--color-green-normal-hover: #25c22d;
+	--color-green-normal-active: #21ab28;
+	--color-green-dark: #19801e;
+	--color-green-dark-hover: #126115;
+	--color-green-dark-active: #0a420d;
+	--color-green-darker: #052407;
+
+	/* GRAY */
+	--color-gray-50: #fefdfd;
+	--color-gray-100: #fdfcfb;
+	--color-gray-200: #fbfaf8;
+	--color-gray-300: #f1eee7;
+	--color-gray-400: #d9d6d0;
+	--color-gray-500: #c1beb9;
+	--color-gray-600: #b5b3ad;
+	--color-gray-700: #918fab;
+	--color-gray-800: #6c6b68;
+	--color-gray-900: #545351;
+}
+
+button {
+	cursor: pointer;
+}
+
+@layer utilities {
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fade-out {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 0.25s ease-out;
+	}
+
+	.animate-fade-out {
+		animation: fade-out 0.25s ease-out;
+	}
+}
+
 /* Diatype Semi Mono */
 @font-face {
 	font-family: 'Diatype Semi Mono';
@@ -78,35 +299,4 @@
 		url('$lib/fonts/ABCSynt-RegularItalic.otf') format('opentype');
 	font-weight: 400;
 	font-style: italic;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-	box-sizing: border-box;
-	height: -webkit-fill-available;
-	font-family: 'Diatype Semi Mono', monospace;
-	@apply bg-primary-bg text-primary-text;
-}
-
-/* Set Synt font for all heading levels */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: 'Synt', sans-serif;
-}
-
-body {
-	min-height: 100vh;
-	/* mobile viewport bug fix */
-	min-height: -webkit-fill-available;
-	transition:
-		background-color 0.2s ease-in-out,
-		color 0.2s ease-in-out;
-	/* @apply dark:bg-black dark:text-white; */
 }
