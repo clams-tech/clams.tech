@@ -6,23 +6,69 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				light: {
-					purple: '#6305F0',
-					orange: '#F7931A'
+				green: {
+					light: '#edf0eb',
+					'light-hover': '#e3e9e1',
+					'light-active': '#c6d2c2',
+					DEFAULT: '#466d39',
+					hover: '#3f6233',
+					active: '#38572e',
+					dark: '#35522b',
+					'dark-hover': '#2a4122',
+					'dark-active': '#1f311a',
+					darker: '#192614'
 				},
-				dark: {
-					purple: '#9870f9',
-					border: '#2e2e2f'
+				red: {
+					light: '#f6eced',
+					'light-hover': '#f2e3e3',
+					'light-active': '#e4c5c6',
+					DEFAULT: '#a84546',
+					hover: '#973e3f',
+					active: '#863738',
+					dark: '#7e3435',
+					'dark-hover': '#65292a',
+					'dark-active': '#4c1f1f',
+					darker: '#3b1819'
 				},
-				utility: {
-					success: '#05F063',
-					error: '#f0051d',
-					pending: '#ff9000'
+				grey: {
+					light: '#fefdfd',
+					'light-hover': '#fdfcfb',
+					'light-active': '#fbfaf8',
+					DEFAULT: '#f1eee7',
+					hover: '#d9d6d0',
+					active: '#c1beb9',
+					dark: '#b5b3ad',
+					'dark-hover': '#918f8b',
+					'dark-active': '#6c6b68',
+					darker: '#545351'
 				},
-				black: '#000000',
+				// Semantic color mappings
+				primary: {
+					bg: {
+						DEFAULT: '#f1eee7', // grey.DEFAULT
+						hover: '#d9d6d0', // grey.hover
+						active: '#c1beb9' // grey.active
+					},
+					text: {
+						DEFAULT: '#212420' // black
+						// hover: '#3f6233', // green.hover
+						// active: '#38572e' // green.active
+					},
+					border: '#212420'
+				},
+				error: {
+					text: {
+						DEFAULT: '#a84546', // red.DEFAULT
+						hover: '#973e3f', // red.hover
+						active: '#863738' // red.active
+					}
+				},
+				black: '#212420',
 				white: '#ffffff',
-				transparent: 'transparent',
-				bitcoin: '#F7931A'
+				transparent: 'transparent'
+			},
+			borderColor: {
+				DEFAULT: '#212420' // Override default border color
 			}
 		}
 	},

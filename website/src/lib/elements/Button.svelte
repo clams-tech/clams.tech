@@ -1,50 +1,27 @@
+<!-- Button.svelte -->
 <script lang="ts">
-	import Spinner from './Spinner.svelte'
+	export let variant: 'black' | 'green' | 'red' = 'black';
+	export let disabled = false;
+	export let type: 'button' | 'submit' | 'reset' = 'button';
+	export let href: string = '';
+	export let target: string = '';
+	export let rel: string = '';
 
-	export let text = ''
-	export let disabled = false
-	export let requesting = false
-	export let small = false
-	export let primary = false
-
-	export const click = () => {
-		button && button.click()
-	}
-
-	let button: HTMLButtonElement
-
-	// ==== 👇 comments are need to prevent styles from being stripped from build when used dynamically 👇 ==== //
-	// px-2
-	// px-4
-	// hover:shadow-light-purple
-	// hover:shadow-md
-	// hover:shadow-current
-	// border-light-purple
-	// border-current
+	const classes =
+		'inline-flex items-center justify-center rounded-xl px-4 py-3 transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 ' +
+		(variant === 'black'
+			? 'bg-black text-white hover:bg-black/90 active:bg-black/80'
+			: variant === 'green'
+				? 'bg-green hover:bg-green-hover active:bg-green-active text-white'
+				: 'bg-red hover:bg-red-hover active:bg-red-active text-white');
 </script>
 
-<button
-	bind:this={button}
-	on:click
-	style={`opacity: ${disabled ? '0.4' : '1'}`}
-	class="{primary ? 'bg-light-purple dark:bg-white' : 'bg-white dark:bg-black'} {primary
-		? 'text-white dark:text-black'
-		: 'text-black dark:text-white'} no-underline text-{small
-		? 'xs'
-		: 'base'} active:shadow-sm shadow-sm hover:shadow-lg disabled:bg-disabled disabled:border-disabled w-full flex items-center justify-center rounded-md py-3 px-{small
-		? '2'
-		: '4'} border-2 border-solid {primary
-		? 'border-light-purple dark:border-white'
-		: 'border-black dark:border-white'} font-semibold"
-	disabled={disabled || requesting}
->
-	{#if requesting}
-		<Spinner size="1.5rem" />
-	{:else}
-		<slot name="iconLeft" />
-		<span>
-			{text}
-		</span>
-		<slot name="iconRight" />
-	{/if}
-</button>
+{#if href}
+	<a {href} class={classes} aria-disabled={disabled} {target} {rel}>
+		<p class="leading-none"><slot /></p>
+	</a>
+{:else}
+	<button {type} {disabled} class={classes}>
+		<p class="leading-none"><slot /></p>
+	</button>
+{/if}

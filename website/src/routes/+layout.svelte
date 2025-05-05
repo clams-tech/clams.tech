@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { page } from '$app/state';
 	import Navigation from '$lib/components/shared/Navigation.svelte';
 	import Footer from '$lib/components/shared/Footer.svelte';
 	import { loadTranslations, locale } from '$lib/i18n/translations';
@@ -18,5 +17,7 @@
 </script>
 
 <Navigation />
+
 <slot />
-<Footer isAppRoute={page.url.pathname.includes('app')} />
+<div class="mx-4 border-b"></div>
+<Footer />

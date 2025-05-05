@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width" />
 
 		<!-- Check & apply theme here to avoid FOUC -->
-		<script>
+		<!-- <script>
 			localStorage.theme === 'dark' ||
 			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 				? document.documentElement.classList.add('dark')
 				: document.documentElement.classList.remove('dark')
-		</script>
+		</script> -->
 		%sveltekit.head%
 	</head>
 	<body>

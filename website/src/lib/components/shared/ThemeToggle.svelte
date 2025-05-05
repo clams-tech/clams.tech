@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { darkMode } from '$lib/stores';
 
-	let isDarkMode = true;
+	let isDarkMode = false;
 
 	darkMode.subscribe((value) => {
 		isDarkMode = value;

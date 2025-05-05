@@ -1,9 +1,8 @@
 <script lang="ts">
-	import WindowsIcon from '$lib/icons/windows'
-	import AppleIcon from '$lib/icons/apple'
-	import LinuxIcon from '$lib/icons/linux'
-	// import UbuntuIcon from '$lib/icons/ubuntu'
-	import { CRAB_NEBULA_URL } from '$lib/constants'
+	import WindowsIcon from '$lib/icons/windows';
+	import AppleIcon from '$lib/icons/apple';
+	import LinuxIcon from '$lib/icons/linux';
+	import { CRAB_NEBULA_URL } from '$lib/constants';
 
 	let downloads = [
 		{
@@ -36,23 +35,21 @@
 			href: `${CRAB_NEBULA_URL}/debian-x86_64`,
 			icon: LinuxIcon
 		}
-	]
+	];
 </script>
 
-<div class="m-auto">
-	<!-- Downloads -->
-	<div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8 m-auto">
-		{#each downloads as { os, href, icon }}
-			<a
-				{href}
-				class="flex justify-center items-center gap-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-				type="button"
-			>
-				<div class="w-6 xs:w-12">
-					{@html icon}
-				</div>
-				{os}
-			</a>
-		{/each}
-	</div>
+<!-- Downloads -->
+<div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
+	{#each downloads as { os, href, icon }}
+		<a
+			{href}
+			class="inline-flex items-center justify-center rounded-xl bg-black px-4 py-3 text-white transition-colors duration-200 hover:bg-black/90 active:bg-black/80 disabled:cursor-not-allowed disabled:opacity-50"
+			type="button"
+		>
+			<div class="xs:w-12 mr-2 w-6">
+				{@html icon}
+			</div>
+			{os}
+		</a>
+	{/each}
 </div>

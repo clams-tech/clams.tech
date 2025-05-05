@@ -1,20 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+/* Diatype Semi Mono */
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Regular.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Regular.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-RegularItalic.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-RegularItalic.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-RegularItalic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Medium.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Medium.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-MediumItalic.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-MediumItalic.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-MediumItalic.otf') format('opentype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Bold.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Bold.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Diatype Semi Mono';
+	src:
+		url('$lib/fonts/ABCDiatypeSemi-Mono-BoldItalic.woff2') format('woff2'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-BoldItalic.woff') format('woff'),
+		url('$lib/fonts/ABCDiatypeSemi-Mono-BoldItalic.otf') format('opentype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+/* Synt */
+@font-face {
+	font-family: 'Synt';
+	src:
+		url('$lib/fonts/ABCSynt-Regular.woff2') format('woff2'),
+		url('$lib/fonts/ABCSynt-Regular.woff') format('woff'),
+		url('$lib/fonts/ABCSynt-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Synt';
+	src:
+		url('$lib/fonts/ABCSynt-RegularItalic.woff2') format('woff2'),
+		url('$lib/fonts/ABCSynt-RegularItalic.woff') format('woff'),
+		url('$lib/fonts/ABCSynt-RegularItalic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-  box-sizing: border-box;
-  height: -webkit-fill-available;
-  font-family: 'Noto Sans', sans-serif;
-  color: #1e1e1e;
+	box-sizing: border-box;
+	height: -webkit-fill-available;
+	font-family: 'Diatype Semi Mono', monospace;
+	@apply bg-primary-bg text-primary-text;
+}
+
+/* Set Synt font for all heading levels */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Synt', sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  @apply dark:bg-black dark:text-white;
+	min-height: 100vh;
+	/* mobile viewport bug fix */
+	min-height: -webkit-fill-available;
+	transition:
+		background-color 0.2s ease-in-out,
+		color 0.2s ease-in-out;
+	/* @apply dark:bg-black dark:text-white; */
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ClamsAltIcon from '$lib/icons/clams-alt';
-	import { BLOG_URL } from '$lib/constants';
+	import { BLOG_URL, DOCS_URL } from '$lib/constants';
+	import Button from '$lib/elements/Button.svelte';
 
 	let showMobileMenu = false;
 </script>
@@ -12,7 +12,7 @@
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Clams</span>
 				<div class="w-10">
-					{@html ClamsAltIcon}
+					<img src="src/lib/icons/clams-logomark.svg" alt="Clams Logo" />
 				</div>
 			</a>
 		</div>
@@ -39,12 +39,12 @@
 				</svg>
 			</button>
 		</div>
-		<div class="hidden lg:flex lg:gap-x-12">
+		<div class="hidden items-center lg:flex lg:gap-x-12">
 			<a
-				href="/about"
-				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-				>About</a
+				href={DOCS_URL}
+				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white">Docs</a
 			>
+
 			<a
 				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
 				href={BLOG_URL}
@@ -53,11 +53,7 @@
 			>
 				Blog
 			</a>
-			<a
-				href="/downloads"
-				class="cursor-pointer text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-				>Downloads</a
-			>
+			<Button href="/downloads" variant="green">Download</Button>
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
@@ -71,7 +67,7 @@
 				<a on:click={() => (showMobileMenu = false)} href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Clams</span>
 					<div class="w-10">
-						{@html ClamsAltIcon}
+						<img src="src/lib/icons/clams-logomark.svg" alt="Clams Logo" />
 					</div>
 				</a>
 				<button
@@ -103,17 +99,17 @@
 						>
 						<a
 							on:click={() => (showMobileMenu = false)}
+							href="/downloads"
+							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+							>App</a
+						>
+						<a
+							on:click={() => (showMobileMenu = false)}
 							href={BLOG_URL}
 							target="_blank"
 							rel="noopener noreferrer"
 							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
 							>Blog</a
-						>
-						<a
-							on:click={() => (showMobileMenu = false)}
-							href="/downloads"
-							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
-							>Downloads</a
 						>
 					</div>
 				</div>
