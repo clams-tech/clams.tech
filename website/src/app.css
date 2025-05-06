@@ -187,10 +187,6 @@
 	--color-gray-900: #545351;
 }
 
-button {
-	cursor: pointer;
-}
-
 @layer utilities {
 	@keyframes fade-in {
 		0% {
@@ -299,4 +295,27 @@ button {
 		url('$lib/fonts/ABCSynt-RegularItalic.otf') format('opentype');
 	font-weight: 400;
 	font-style: italic;
+}
+
+/* Set Diatype Semi Mono font as default */
+html {
+	font-family: 'Diatype Semi Mono';
+}
+
+/* Set Synt font for all heading levels */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Synt', sans-serif;
+}
+
+button {
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
 }

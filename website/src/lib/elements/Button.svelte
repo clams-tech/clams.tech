@@ -12,8 +12,8 @@
 		(variant === 'black'
 			? 'bg-black text-white hover:bg-black/90 active:bg-black/80'
 			: variant === 'green'
-				? 'bg-green hover:bg-green-hover active:bg-green-active text-white'
-				: 'bg-red hover:bg-red-hover active:bg-red-active text-white');
+				? 'bg-clams-green-normal hover:clams-green-normal-hover active:clams-green-normal-active text-white'
+				: 'bg-clams-red-norma hover:bg-clams-red-normal-hover active:clams-red-normal-active text-white');
 </script>
 
 {#if href}
