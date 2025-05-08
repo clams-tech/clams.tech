@@ -300,6 +300,7 @@
 /* Set Diatype Semi Mono font as default */
 html {
 	font-family: 'Diatype Semi Mono';
+	background: var(--color-gray-300);
 }
 
 /* Set Synt font for all heading levels */

@@ -17,7 +17,5 @@
 </script>
 
 <Navigation />
-
 <slot />
-<div class="mx-4 border-b"></div>
 <Footer />

@@ -27,8 +27,7 @@
 			title: 'Company',
 			items: [
 				{ title: 'About', href: '/about', target: '', rel: '' },
-				{ title: 'Contact', href: '/contact', target: '', rel: '' },
-				{ title: 'Brand Assets', href: '/brand-assets', target: '', rel: '' }
+				{ title: 'Brand', href: '/brand', target: '', rel: '' }
 			]
 		},
 		{
@@ -56,13 +55,14 @@
 	const currentYear = currentDate.getFullYear();
 </script>
 
-<footer aria-labelledby="footer-heading" class="px-4 pb-4 pt-16">
-	<div class="mx-auto max-w-5xl">
-		<div class="grid grid-cols-2 gap-8">
-			<div class="w-full max-w-[200px]">
-				<img src="src/lib/icons/clams-seal.svg" alt="Clams Seal" />
+<footer aria-labelledby="footer-heading" class="px-4 pt-4 pb-4">
+	<div class="mt-4 mb-4 border-b"></div>
+	<div class="m-auto flex max-w-7xl flex-col">
+		<div class="grid gap-8 md:grid-cols-2">
+			<div class="w-full">
+				<img class="max-w-[200px]" src="src/lib/icons/clams-seal.svg" alt="Clams Seal" />
 			</div>
-			<div class=" flex flex-col justify-between">
+			<div class="flex flex-col justify-between">
 				<div class="flex justify-between">
 					{#each links as { title, items }}
 						<div>
@@ -75,7 +75,7 @@
 						</div>
 					{/each}
 				</div>
-				<div class="flex justify-between">
+				<div class="mt-8 flex justify-between md:mt-0">
 					<div class="flex items-center gap-4">
 						{#each socials as { icon, title, href }}
 							<a class="flex hover:underline" {href} target="_blank" rel="noopener noreferrer">
@@ -91,5 +91,9 @@
 			</div>
 		</div>
 	</div>
-	<p class="mt-16 text-center">{`${currentYear} Clams, LLC. All rights reserved.`}</p>
+	<div class="mt-4 mb-4 border-b"></div>
+	<div class="mt-4 grid md:grid-cols-2 md:gap-8">
+		<div></div>
+		<div><p class="text-right">{`${currentYear} Clams, LLC. All rights reserved.`}</p></div>
+	</div>
 </footer>
