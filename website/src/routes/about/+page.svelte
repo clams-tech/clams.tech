@@ -3,7 +3,8 @@
 </script>
 
 <!-- About -->
-<section class="px-4 pb-16 pt-28">
+<section class="px-4 py-16">
+	<div class="mt-1 mb-16 border-b"></div>
 	<div class="m-auto flex max-w-5xl flex-col gap-8">
 		<h1 class="text-6xl">About Clams</h1>
 		<div class="flex flex-col gap-2">
@@ -33,7 +34,7 @@
 			</p>
 		</div>
 
-		<div class="grid grid-cols-2 gap-8">
+		<div class="grid gap-8 md:grid-cols-2">
 			<div>
 				<p class="text-2xl">Stay Updated</p>
 				<p>

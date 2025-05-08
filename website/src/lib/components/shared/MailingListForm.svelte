@@ -19,7 +19,7 @@
 						name="EMAIL"
 						id="mce-EMAIL"
 						required
-						class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+						class="w-full rounded-lg border px-4 py-2 focus:ring focus:ring-blue-300 focus:outline-none"
 						placeholder="Enter your email"
 					/>
 				</div>
