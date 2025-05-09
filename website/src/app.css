@@ -301,6 +301,7 @@
 html {
 	font-family: 'Diatype Semi Mono';
 	background: var(--color-gray-300);
+	color: #212420;
 }
 
 /* Set Synt font for all heading levels */

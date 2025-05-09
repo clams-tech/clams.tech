@@ -1,8 +1,9 @@
 <script lang="ts">
-	import clamsLogoSVG from '$lib/icons/clams-lockup.svg';
-	import clamsLogoPNG from '$lib/icons/clams-lockup.png';
+	import clamsLogoSVG from '$lib/icons/clams-logo.svg';
+	import clamsLogoPNG from '$lib/icons/clams-logo.png';
 	import clamsLogomarkSVG from '$lib/icons/clams-logomark.svg';
 	import clamsLogomarkPNG from '$lib/icons/clams-logomark.png';
+	import clamsLogoWhiteSVG from '$lib/icons/clams-logo-white.svg';
 </script>
 
 <section class="px-4 py-16">
@@ -18,7 +19,7 @@
 					<p class="text-2xl font-bold">Logo</p>
 					<p class="mt-2">Our primary brand logo.</p>
 				</div>
-				<div class="flex flex-col items-center rounded-md border bg-gray-50 p-6">
+				<div class="flex flex-col items-center rounded-md border bg-white p-6">
 					<div class="flex h-24 w-full items-center justify-center">
 						<img src={clamsLogoSVG} alt="Logo" class="h-24" />
 					</div>
@@ -26,7 +27,7 @@
 						<a
 							href={clamsLogoSVG}
 							download={clamsLogoSVG}
-							class="flex items-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm text-blue-600 transition-colors hover:bg-blue-50"
+							class="flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +49,7 @@
 						<a
 							href={clamsLogoPNG}
 							download={clamsLogoPNG}
-							class="flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors"
+							class="flex items-center gap-2 rounded-md border bg-white px-4 py-2 text-sm transition-colors"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +86,7 @@
 						<a
 							href={clamsLogomarkSVG}
 							download={clamsLogomarkSVG}
-							class="flex items-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm text-blue-600 transition-colors hover:bg-blue-50"
+							class="flex items-center gap-2 rounded-md border bg-white px-4 py-2 text-sm transition-colors"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +132,85 @@
 			</div>
 		</div>
 
+		<!-- Brand Colors -->
+		<div>
+			<p class="text-2xl font-bold">Brand Colors</p>
+			<p class="mt-2">Our official color palette for consistent brand representation.</p>
+
+			<div class="mt-6 grid gap-6 md:grid-cols-4">
+				<!-- Black -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="h-24 bg-[#212420]"></div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Off-Black</p>
+						<p class="mt-1 text-sm">#212420</p>
+					</div>
+				</div>
+
+				<!-- Off-White -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="h-24 bg-[#F1EEE7]"></div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Off-White</p>
+						<p class="mt-1 text-sm">#F1EEE7</p>
+					</div>
+				</div>
+
+				<!-- Red -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="h-24 bg-[#8F0709]"></div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Red</p>
+						<p class="mt-1 text-sm">#8F0709</p>
+					</div>
+				</div>
+
+				<!-- Green -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="h-24 bg-[#235811]"></div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Green</p>
+						<p class="mt-1 text-sm">#235811</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Logo Color Usage -->
+		<div>
+			<p class="text-2xl font-bold">Logo Color Usage</p>
+			<p class="mt-2">
+				Our logo should only ever be a single color: Black or Off-White. Always maintain high
+				contrast with the background.
+			</p>
+
+			<div class="mt-6 grid gap-8 md:grid-cols-2">
+				<!-- Light Background Example -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="flex h-36 items-center justify-center bg-[#F1EEE7] p-4">
+						<img src={clamsLogoSVG} alt="Logo on light background" class="h-16 filter" />
+					</div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Light Background</p>
+						<p class="mt-1 text-sm">Use Black logo on light backgrounds</p>
+					</div>
+				</div>
+
+				<!-- Dark Background Example -->
+				<div class="flex flex-col overflow-hidden rounded-md border">
+					<div class="flex h-36 items-center justify-center bg-[#212420] p-4">
+						<img src={clamsLogoWhiteSVG} alt="Logo on dark background" class="h-16" />
+					</div>
+					<div class="bg-white p-4">
+						<p class="font-semibold">Dark Background</p>
+						<p class="mt-1 text-sm">Use Off-White logo on dark backgrounds</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Usage Guidelines -->
-		<div class="mt-8">
+		<div>
 			<p class="text-2xl font-bold">Usage Guidelines</p>
 			<div class="mt-4 grid gap-8 md:grid-cols-2">
 				<div>
@@ -141,6 +219,7 @@
 						<li>Use the logo with adequate spacing</li>
 						<li>Maintain aspect ratio when scaling</li>
 						<li>Use on backgrounds that ensure visibility</li>
+						<li>Always use either Black or Off-White for the logo</li>
 					</ul>
 				</div>
 				<div>
@@ -148,7 +227,7 @@
 					<ul class="mt-2 list-disc pl-5">
 						<li>Make size smaller than than 31px</li>
 						<li>Distort or modify the logo</li>
-						<li>Change the colors</li>
+						<li>Change the colors beyond Black and Off-White</li>
 						<li>Apply effects like shadows or outlines</li>
 					</ul>
 				</div>

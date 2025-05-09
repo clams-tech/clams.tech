@@ -23,11 +23,11 @@
 			<p>Aaron & John</p>
 		</div>
 		<div>
-			<p class="text-2xl">Our Vision</p>
+			<p class="text-2xl font-bold">Our Vision</p>
 			<p>Set the global standard for Bitcoin accounting.</p>
 		</div>
 		<div>
-			<p class="text-2xl">Our Mission</p>
+			<p class="text-2xl font-bold">Our Mission</p>
 			<p>
 				Simplify Bitcoin accounting with trusted, private, best-in-class software for individuals,
 				businesses, and finance professionals.
@@ -36,7 +36,7 @@
 
 		<div class="grid gap-8 md:grid-cols-2">
 			<div>
-				<p class="text-2xl">Stay Updated</p>
+				<p class="text-2xl font-bold">Stay Updated</p>
 				<p>
 					Join our mailing list for the latest Clams updates. As with everything we do, your privacy
 					is our priority— there will be no data sharing. Easy unsubscribe at any time.
