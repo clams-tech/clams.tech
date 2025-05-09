@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { BLOG_URL, DOCS_URL } from '$lib/constants';
+	import clamsLogomark from '$lib/icons/clams-logomark.svg';
 	import Button from '$lib/elements/Button.svelte';
 
 	let showMobileMenu = false;
@@ -12,7 +13,7 @@
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Clams</span>
 				<div class="w-10">
-					<img src="src/lib/icons/clams-logomark.svg" alt="Clams Logomark" />
+					<img src={clamsLogomark} alt="Clams Logomark" />
 				</div>
 			</a>
 		</div>
@@ -63,7 +64,7 @@
 				<a on:click={() => (showMobileMenu = false)} href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Clams</span>
 					<div class="w-10">
-						<img src="src/lib/icons/clams-logomark.svg" alt="Clams Logo" />
+						<img src={clamsLogomark} alt="Clams Logo" />
 					</div>
 				</a>
 				<button

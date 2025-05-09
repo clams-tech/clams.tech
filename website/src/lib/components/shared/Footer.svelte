@@ -1,5 +1,11 @@
 <script lang="ts">
 	import { BLOG_URL, DISCORD_URL, DOCS_URL, GITHUB_URL, X_URL } from '$lib/constants';
+	import nostrIcon from '$lib/icons/nostr.svg';
+	import discordIcon from '$lib/icons/discord.svg';
+	import githubIcon from '$lib/icons/github.svg';
+	import xIcon from '$lib/icons/x.svg';
+	import clamsSeal from '$lib/icons/clams-seal.svg';
+	import clamsLogotype from '$lib/icons/clams-logotype.svg';
 
 	let links = [
 		{
@@ -42,13 +48,13 @@
 
 	let socials = [
 		{
-			icon: 'src/lib/icons/nostr.svg',
+			icon: nostrIcon,
 			title: 'Nostr',
 			href: 'https://nostr.at/npub136hk9wu6xnrz64kfaapsvgc5rfnylz4djlx4w30w66h6cy48vhws3gth6q'
 		},
-		{ icon: 'src/lib/icons/discord.svg', title: 'Discord', href: DISCORD_URL },
-		{ icon: 'src/lib/icons/github.svg', title: 'GitHub', href: GITHUB_URL },
-		{ icon: 'src/lib/icons/x.svg', title: 'X', href: X_URL }
+		{ icon: discordIcon, title: 'Discord', href: DISCORD_URL },
+		{ icon: githubIcon, title: 'GitHub', href: GITHUB_URL },
+		{ icon: xIcon, title: 'X', href: X_URL }
 	];
 
 	const currentDate = new Date();
@@ -60,7 +66,7 @@
 	<div class="m-auto flex max-w-7xl flex-col">
 		<div class="grid gap-8 md:grid-cols-2">
 			<div class="w-full">
-				<img class="max-w-[200px]" src="src/lib/icons/clams-seal.svg" alt="Clams Seal" />
+				<img class="max-w-[200px]" src={clamsSeal} alt="Clams Seal" />
 			</div>
 			<div class="flex flex-col justify-between">
 				<div class="flex justify-between">
@@ -85,7 +91,7 @@
 					</div>
 
 					<div class="w-24">
-						<img src="/src/lib/icons/clams-logotype.svg" alt="Clams" />
+						<img src={clamsLogotype} alt="Clams" />
 					</div>
 				</div>
 			</div>
@@ -94,6 +100,8 @@
 	<div class="mt-4 mb-4 border-b"></div>
 	<div class="mt-4 grid md:grid-cols-2 md:gap-8">
 		<div></div>
-		<div><p class="text-right">{`${currentYear} Clams, LLC. All rights reserved.`}</p></div>
+		<div>
+			<p>{`${currentYear} Clams, LLC. All rights reserved.`}</p>
+		</div>
 	</div>
 </footer>

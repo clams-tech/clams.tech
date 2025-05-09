@@ -1,23 +1,31 @@
+<script lang="ts">
+	import clamsLogoSVG from '$lib/icons/clams-lockup.svg';
+	import clamsLogoPNG from '$lib/icons/clams-lockup.png';
+	import clamsLogomarkSVG from '$lib/icons/clams-logomark.svg';
+	import clamsLogomarkPNG from '$lib/icons/clams-logomark.png';
+</script>
+
 <section class="px-4 py-16">
 	<div class="mt-1 mb-16 border-b"></div>
 	<div class="m-auto flex max-w-5xl flex-col gap-8">
 		<h1 class="text-6xl">Brand Assets</h1>
 
+		<!-- Downloads -->
 		<div class="grid gap-8 md:grid-cols-2">
 			<!-- Logo -->
 			<div class="flex flex-col gap-4">
 				<div>
 					<p class="text-2xl font-bold">Logo</p>
-					<p class="mt-2">The primary brand logo.</p>
+					<p class="mt-2">Our primary brand logo.</p>
 				</div>
 				<div class="flex flex-col items-center rounded-md border bg-gray-50 p-6">
-					<div class="flex h-48 w-full items-center justify-center">
-						<img src="../src/lib/icons/clams-lockup.svg" alt="Logo" class="w-48" />
+					<div class="flex h-24 w-full items-center justify-center">
+						<img src={clamsLogoSVG} alt="Logo" class="h-24" />
 					</div>
 					<div class="mt-6 flex gap-4">
 						<a
-							href="../src/lib/icons/clams-lockup.svg"
-							download="clams-logo.svg"
+							href={clamsLogoSVG}
+							download={clamsLogoSVG}
 							class="flex items-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm text-blue-600 transition-colors hover:bg-blue-50"
 						>
 							<svg
@@ -38,7 +46,8 @@
 							SVG
 						</a>
 						<a
-							href="../src/lib/icons/clams-lockup.png"
+							href={clamsLogoPNG}
+							download={clamsLogoPNG}
 							class="flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors"
 						>
 							<svg
@@ -66,16 +75,16 @@
 			<div class="flex flex-col gap-4">
 				<div>
 					<p class="text-2xl font-bold">Logomark</p>
-					<p class="mt-2">Suitable for compact spaces.</p>
+					<p class="mt-2">Our logo for compact spaces.</p>
 				</div>
 				<div class="flex flex-col items-center rounded-md border bg-white p-6">
-					<div class="flex h-48 w-full items-center justify-center">
-						<img src="../src/lib/icons/clams-logomark.svg" alt="Clams Logomark" class="w-48" />
+					<div class="flex h-24 w-full items-center justify-center">
+						<img src={clamsLogomarkSVG} alt="Clams Logomark" class="h-24" />
 					</div>
 					<div class="mt-6 flex gap-4">
 						<a
-							href="../src/lib/icons/clams-logomark.svg"
-							download="clams-logomark.svg"
+							href={clamsLogomarkSVG}
+							download={clamsLogomarkSVG}
 							class="flex items-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm text-blue-600 transition-colors hover:bg-blue-50"
 						>
 							<svg
@@ -96,7 +105,8 @@
 							SVG
 						</a>
 						<a
-							href="../src/lib/icons/clams-logomark.png"
+							href={clamsLogomarkPNG}
+							download={clamsLogomarkPNG}
 							class="flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors"
 						>
 							<svg
@@ -125,7 +135,7 @@
 		<div class="mt-8">
 			<p class="text-2xl font-bold">Usage Guidelines</p>
 			<div class="mt-4 grid gap-8 md:grid-cols-2">
-				<div class="rounded-md border bg-white p-4">
+				<div>
 					<p class="font-semibold">Do:</p>
 					<ul class="mt-2 list-disc pl-5">
 						<li>Use the logo with adequate spacing</li>
@@ -133,7 +143,7 @@
 						<li>Use on backgrounds that ensure visibility</li>
 					</ul>
 				</div>
-				<div class="rounded-md border bg-white p-4">
+				<div>
 					<p class="font-semibold">Don't:</p>
 					<ul class="mt-2 list-disc pl-5">
 						<li>Make size smaller than than 31px</li>

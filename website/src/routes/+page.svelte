@@ -1,3 +1,8 @@
+<script>
+	import clamsLockup from '$lib/icons/clams-lockup.svg';
+	import clamsSeal from '$lib/images/clams-seal.png';
+</script>
+
 <svelte:head>
 	<title>Clams</title>
 </svelte:head>
@@ -8,7 +13,7 @@
 		<div class="mt-1 mb-16 border-b"></div>
 		<div class="m-auto grid max-w-7xl gap-8 md:grid-cols-2">
 			<div class="flex flex-col items-center justify-center gap-8">
-				<img src="src/lib/icons/clams-lockup.svg" alt="Clams hero icon" class="w-full" />
+				<img src={clamsLockup} alt="Clams hero icon" class="w-full" />
 				<p class="text-2xl">Purpose Built Bitcoin Accounting</p>
 				<p>
 					<span class="block">Clams unifies all your Bitcoin transactions into</span>
@@ -16,11 +21,7 @@
 				</p>
 			</div>
 			<div class="w-full overflow-hidden rounded-lg">
-				<img
-					src="src/lib/images/clams-seal.png"
-					alt="Clams Seal"
-					class="h-full w-full object-cover"
-				/>
+				<img src={clamsSeal} alt="Clams Seal" class="h-full w-full object-cover" />
 			</div>
 		</div>
 	</section>
