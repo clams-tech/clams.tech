@@ -75,7 +75,7 @@
 							<p class="text-lg font-bold">{title}</p>
 							<ul>
 								{#each items as { title, href }}
-									<li><a {href} class="hover:underline">{title}</a></li>
+									<li class="mt-1"><a {href} class="hover:underline">{title}</a></li>
 								{/each}
 							</ul>
 						</div>

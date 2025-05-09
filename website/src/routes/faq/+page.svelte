@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { DISCORD_URL } from '$lib/constants';
 	import { fade, slide } from 'svelte/transition';
 
 	const faqs = [
@@ -66,10 +65,11 @@
 	}
 </script>
 
-<section class="px-4 pb-16 pt-28">
+<section class="px-4 py-16">
+	<div class="mt-1 mb-16 border-b"></div>
 	<div class="mx-auto flex max-w-5xl flex-col gap-8">
 		<h1 class="text-5xl">Frequently Asked Questions</h1>
-		<dl class="space-y-6 divide-y divide-gray-900/10 dark:divide-gray-100/10">
+		<dl class="space-y-6 divide-y divide-gray-500">
 			{#each faqs as { q, a, selected }, i}
 				<div class="pt-6">
 					<dt>
