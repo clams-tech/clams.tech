@@ -2,6 +2,7 @@
 	import { BLOG_URL, DOCS_URL } from '$lib/constants';
 	import clamsLogomark from '$lib/icons/clams-logomark.svg';
 	import Button from '$lib/elements/Button.svelte';
+	import { fly, fade } from 'svelte/transition';
 
 	let showMobileMenu = false;
 </script>
@@ -21,7 +22,7 @@
 			<button
 				on:click={() => (showMobileMenu = true)}
 				type="button"
-				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+				class="-m-2.5 inline-flex items-center justify-center rounded-md"
 			>
 				<span class="sr-only">Open main menu</span>
 				<svg
@@ -54,10 +55,25 @@
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
-	<div class:hidden={!showMobileMenu} role="dialog" aria-modal="true">
-		<!-- Background backdrop, show/hide based on slide-over state. -->
-		<div class="fixed inset-0 z-50"></div>
+	{#if showMobileMenu}
+		<!-- Background backdrop with fade transition -->
 		<div
+			transition:fade={{ duration: 200 }}
+			class="fixed inset-0 z-50 bg-black opacity-50"
+			on:click={() => (showMobileMenu = false)}
+			on:keydown={(e) => {
+				if (e.key === 'Escape') {
+					showMobileMenu = false;
+				}
+			}}
+			role="button"
+			tabindex="0"
+			aria-label="Close menu"
+		></div>
+
+		<!-- Mobile menu with fly transition -->
+		<div
+			transition:fly={{ x: 300, duration: 300, opacity: 1 }}
 			class="fixed inset-y-0 right-0 z-50 h-screen w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 		>
 			<div class="flex items-center justify-between">
@@ -104,10 +120,16 @@
 							class="-mx-3 block cursor-pointer rounded-lg px-3 py-2 leading-7 font-semibold hover:bg-gray-50"
 							>Docs</a
 						>
-						<Button href="/downloads" variant="green">Download</Button>
+						<button
+							type="button"
+							class="w-full border-0 bg-transparent p-0 text-left"
+							on:click={() => (showMobileMenu = false)}
+						>
+							<Button href="/downloads" variant="green">Download</Button>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	{/if}
 </header>
