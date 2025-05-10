@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 
 	interface FeatureCategory {
 		title: string;
@@ -489,7 +489,7 @@
 					<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full">
 						{@html userType.icon}
 					</div>
-					<h2 class="text-xl font-bold">{userType.title}</h2>
+					<p class="text-xl font-bold">{userType.title}</p>
 				</button>
 			{/each}
 		</div>
@@ -498,11 +498,12 @@
 		{#each userTypes as userType, userIndex}
 			{#if userType.expanded}
 				<div
-					transition:slide={{ duration: 300 }}
+					in:fade={{ duration: 200 }}
+					out:fade={{ duration: 200 }}
 					class="mt-8 rounded-lg border bg-white p-6 shadow-sm"
 				>
 					<div class="mb-6">
-						<h2 class="text-center text-3xl font-bold">{userType.title}</h2>
+						<p class="text-center text-4xl font-bold">{userType.title}</p>
 						<p class="m-auto mt-2 max-w-3xl text-center italic">{userType.description}</p>
 					</div>
 
