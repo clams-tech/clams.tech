@@ -56,7 +56,9 @@
 		</div>
 		<div class="mt-8 grid gap-16">
 			{#each features as feature}
-				<div class="grid h-[400px] gap-8 rounded-md border bg-white px-6 py-8 md:grid-cols-2">
+				<div
+					class="grid h-[400px] gap-8 rounded-md border border-gray-500 bg-white px-6 py-8 md:grid-cols-2"
+				>
 					{#if feature.imagePosition === 'left'}
 						<div class="relative h-full w-full overflow-hidden">
 							<img
