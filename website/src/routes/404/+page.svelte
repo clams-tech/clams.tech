@@ -1,18 +1,14 @@
 <script lang="ts">
-	import ContentContainer from '$lib/components/shared/ContentContainer.svelte';
+	import Button from '$lib/elements/Button.svelte';
 </script>
 
-<ContentContainer title="Hmmm... This page doesn’t exist!">
-	<div class="h-screen flex-col items-center text-center">
-		<p class="text-xl tracking-tight text-gray-900 dark:text-white">
-			Maybe the link is broken, or the page moved.
-		</p>
-		<div class="mt-8">
-			<a
-				href="/"
-				class="text-md rounded-md bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-				>Go Home</a
-			>
+<section class="px-4 py-16">
+	<div class="mt-1 mb-16 border-b"></div>
+	<div class="m-auto flex h-screen max-w-5xl flex-col gap-8">
+		<h1 class="text-6xl">Hmmm... This page doesn’t exist!</h1>
+		<p class="text-2xl">Maybe the link is broken, or the page moved.</p>
+		<div>
+			<Button href="/">Go Home</Button>
 		</div>
 	</div>
-</ContentContainer>
+</section>
