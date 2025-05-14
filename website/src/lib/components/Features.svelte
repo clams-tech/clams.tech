@@ -1,10 +1,6 @@
 <script lang="ts">
-	// import { fade, slide } from 'svelte/transition';
-
-	// interface FeatureCategory {
-	// 	title: string;
-	// 	features: Feature[];
-	// }
+	import Button from '$lib/components/shared/Button.svelte';
+	import { DOCS_URL } from '$lib/constants';
 
 	interface Feature {
 		name: string;
@@ -147,15 +143,15 @@
 		</div>
 
 		<!-- User Type Cards -->
-		<div class="grid grid-cols-2 gap-8 md:grid-cols-2">
+		<div class="grid gap-8 md:grid-cols-2">
 			{#each userTypes as { icon, title, description, features }}
-				<div class="flex flex-col items-center rounded-lg border border-gray-500 px-6 py-8">
+				<div class="flex flex-col rounded-lg border border-gray-500 bg-white px-6 py-8">
 					<div class="mb-4 flex items-center justify-center rounded-full">
 						{@html icon}
 					</div>
-					<p class="text-xl font-bold">{title}</p>
-					<p class="mt-4 italic">{description}</p>
-					<ul class="mt-4 flex list-disc flex-col gap-2 pl-6">
+					<p class="text-center text-xl font-bold">{title}</p>
+					<p class="mt-4 text-center italic">{description}</p>
+					<ul class="mt-4 flex flex-col gap-2">
 						{#each features as { name, description }}
 							<li>
 								<div class="mt-4">
@@ -167,6 +163,22 @@
 					</ul>
 				</div>
 			{/each}
+		</div>
+
+		<!-- CTA Buttons -->
+		<div class="mt-8 grid grid-cols-2 gap-4 md:gap-8">
+			<div
+				class="flex justify-end
+			"
+			>
+				<Button href={DOCS_URL} newTab>Learn More</Button>
+			</div>
+			<div
+				class="flex justify-start
+			"
+			>
+				<Button variant="green" href="/downloads">Download</Button>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/elements/Button.svelte';
+	import Button from '$lib/components/shared/Button.svelte';
 </script>
 
 <section class="px-4 py-16">

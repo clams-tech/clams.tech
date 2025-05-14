@@ -1,4 +1,5 @@
 <script lang="ts">
+	import check from '$lib/icons/check.svg';
 	import wood from '$lib/images/wood.png';
 	import marble from '$lib/images/marble.png';
 	import leather from '$lib/images/leather.png';
@@ -57,23 +58,26 @@
 		<div class="mt-8 grid gap-16">
 			{#each features as feature}
 				<div
-					class="grid h-[400px] gap-8 rounded-md border border-gray-500 bg-white px-6 py-8 md:grid-cols-2"
+					class="grid gap-8 rounded-md border border-gray-500 bg-white px-6 py-8 md:h-[500px] md:grid-cols-2"
 				>
 					{#if feature.imagePosition === 'left'}
 						<div class="relative h-full w-full overflow-hidden">
 							<img
 								src={feature.image}
 								alt={feature.imageAlt}
-								class="absolute inset-0 h-full w-full rounded-md object-cover"
+								class="inset-0 h-full max-h-[200px] w-full rounded-md object-cover md:absolute md:max-h-full"
 							/>
 						</div>
 					{/if}
 
 					<div class="overflow-auto">
 						<p class="text-2xl font-bold">{feature.title}</p>
-						<ul class="mt-4 flex list-disc flex-col gap-2 pl-6">
+						<ul class="mt-4 flex flex-col gap-2">
 							{#each feature.points as point}
-								<li>{point}</li>
+								<li class="flex items-center gap-2">
+									<img src={check} alt="check" class="inline-block w-6" />
+									<p>{point}</p>
+								</li>
 							{/each}
 						</ul>
 					</div>
@@ -83,7 +87,7 @@
 							<img
 								src={feature.image}
 								alt={feature.imageAlt}
-								class="absolute inset-0 h-full w-full rounded-md object-cover"
+								class="inset-0 h-full max-h-[200px] w-full rounded-md object-cover md:absolute md:max-h-full"
 							/>
 						</div>
 					{/if}

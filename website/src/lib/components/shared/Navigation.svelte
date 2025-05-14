@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { BLOG_URL, DOCS_URL } from '$lib/constants';
 	import clamsLogomark from '$lib/icons/clams-logomark.svg';
-	import Button from '$lib/elements/Button.svelte';
+	import Button from '$lib/components/shared/Button.svelte';
 	import { fly, fade } from 'svelte/transition';
 
 	let showMobileMenu = false;

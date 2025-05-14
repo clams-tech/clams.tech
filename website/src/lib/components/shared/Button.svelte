@@ -4,8 +4,7 @@
 	export let disabled = false;
 	export let type: 'button' | 'submit' | 'reset' = 'button';
 	export let href: string = '';
-	export let target: string = '';
-	export let rel: string = '';
+	export let newTab = false;
 
 	const classes =
 		'inline-flex items-center justify-center rounded-xl px-4 py-3 transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 ' +
@@ -17,7 +16,13 @@
 </script>
 
 {#if href}
-	<a {href} class={classes} aria-disabled={disabled} {target} {rel}>
+	<a
+		{href}
+		class={classes}
+		aria-disabled={disabled}
+		target={newTab ? '_blank' : ''}
+		rel={newTab ? 'noopener noreferrer' : ''}
+	>
 		<p class="leading-none"><slot /></p>
 	</a>
 {:else}
