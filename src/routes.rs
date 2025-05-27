@@ -31,7 +31,7 @@ struct PhoenixdInvoiceCreate {
     external_id: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 pub struct InvoiceParams {
     hash: String,
     name: String,
@@ -149,6 +149,11 @@ pub async fn get_invoice(
             Ok((amount_msats, zap_request))
         }
     }?;
+
+    println!(
+        "Getting invoice for params: {:?}, amount_msats: {}, zap: {:?}",
+        &params, &amount_msats, &zap_request
+    );
 
     match get_invoice_impl(state, params, amount_msats, zap_request).await {
         Ok(invoice) => Ok(Json(json!({
@@ -342,9 +347,6 @@ pub async fn handle_payments_webhook(
     headers: HeaderMap,
     body: Bytes,
 ) -> Result<(), (StatusCode, String)> {
-    println!("Checking sig");
-
-    dbg!(&state.config);
     // Extract signature from headers
     let signature = headers
         .get("x-phoenix-signature")
@@ -361,7 +363,6 @@ pub async fn handle_payments_webhook(
     mac.verify_slice(&decoded_signature)
         .map_err(|_| WebhookError::InvalidSignature)?;
 
-    println!("Sig good");
     // If signature is valid, process the payload
     let webhook_payload: WebhookPayload = serde_json::from_slice(&body).map_err(|e| {
         eprintln!("error deserializing: {}", e.to_string());
@@ -370,8 +371,6 @@ pub async fn handle_payments_webhook(
             "Failed to serialize payload".to_string(),
         )
     })?;
-
-    dbg!(&webhook_payload);
 
     // Verify timestamp
     const TIMESTAMP_TOLERANCE: Duration = Duration::from_secs(5 * 60);
