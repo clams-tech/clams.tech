@@ -13,6 +13,7 @@ use nostr_sdk::Client;
 use serde::Deserialize;
 use sled::Db;
 use std::time::Duration;
+use std::cmp::min;
 use tokio_tungstenite::connect_async;
 use tokio_tungstenite::tungstenite::client::IntoClientRequest;
 
@@ -48,8 +49,12 @@ struct PaymentNotification {
 }
 
 pub async fn start_invoice_subscription(db: Db, key: Keys, config: Config) -> anyhow::Result<()> {
+    let mut reconnect_delay = Duration::from_secs(1);
+    let max_reconnect_delay = Duration::from_secs(60);
+    let mut consecutive_failures = 0;
+    
     loop {
-        println!("Starting invoice subscription");
+        println!("Starting invoice subscription (attempt {})", consecutive_failures + 1);
 
         let host = format!("{}:{}", config.phoenixd_host, config.phoenixd_port);
         let url = format!("ws://{}/websocket", &host);
@@ -63,55 +68,85 @@ pub async fn start_invoice_subscription(db: Db, key: Keys, config: Config) -> an
             auth_header.parse().expect("auth header can be parsed"),
         );
 
-        // Connect to the WebSocket server
-        let (mut ws_stream, _) = connect_async(request).await?;
+        // Attempt to connect to the WebSocket server
+        match connect_async(request).await {
+            Ok((mut ws_stream, _)) => {
+                println!("WebSocket connection established");
+                consecutive_failures = 0;
+                reconnect_delay = Duration::from_secs(1);
 
-        println!("WebSocket connection established");
+                // Handle incoming messages
+                let mut connection_broken = false;
+                while let Some(msg) = ws_stream.next().await {
+                    match msg {
+                        Ok(msg) => {
+                            if msg.is_text() {
+                                let text = match msg.into_text() {
+                                    Ok(text) => text,
+                                    Err(e) => {
+                                        eprintln!("Error converting message to text: {}", e);
+                                        continue;
+                                    }
+                                };
+                                
+                                match serde_json::from_str::<PaymentNotification>(&text) {
+                                    Ok(payment) => {
+                                        if matches!(
+                                            payment.notification_type,
+                                            PaymentNotificationType::PaymentReceived
+                                        ) {
+                                            let db = db.clone();
+                                            let key = key.clone();
+                                            tokio::spawn(async move {
+                                                let fut = handle_paid_invoice(
+                                                    &db,
+                                                    payment.payment_hash,
+                                                    key.clone(),
+                                                );
 
-        // Handle incoming messages
-        while let Some(msg) = ws_stream.next().await {
-            match msg {
-                Ok(msg) => {
-                    if msg.is_text() {
-                        let text = msg.into_text()?;
-                        match serde_json::from_str::<PaymentNotification>(&text) {
-                            Ok(payment) => {
-                                if matches!(
-                                    payment.notification_type,
-                                    PaymentNotificationType::PaymentReceived
-                                ) {
-                                    let db = db.clone();
-                                    let key = key.clone();
-                                    tokio::spawn(async move {
-                                        let fut = handle_paid_invoice(
-                                            &db,
-                                            payment.payment_hash,
-                                            key.clone(),
-                                        );
-
-                                        match tokio::time::timeout(Duration::from_secs(30), fut)
-                                            .await
-                                        {
-                                            Ok(Ok(_)) => {
-                                                println!("Handled paid invoice!");
-                                            }
-                                            Ok(Err(e)) => {
-                                                eprintln!("Failed to handle paid invoice: {}", e);
-                                            }
-                                            Err(_) => {
-                                                eprintln!("Timeout");
-                                            }
+                                                match tokio::time::timeout(Duration::from_secs(30), fut)
+                                                    .await
+                                                {
+                                                    Ok(Ok(_)) => {
+                                                        println!("Handled paid invoice!");
+                                                    }
+                                                    Ok(Err(e)) => {
+                                                        eprintln!("Failed to handle paid invoice: {}", e);
+                                                    }
+                                                    Err(_) => {
+                                                        eprintln!("Timeout handling paid invoice");
+                                                    }
+                                                }
+                                            });
                                         }
-                                    });
+                                    }
+                                    Err(e) => eprintln!("Error parsing payment notification: {}", e),
                                 }
                             }
-                            Err(e) => eprintln!("Error parsing payment: {}", e),
+                        }
+                        Err(e) => {
+                            eprintln!("WebSocket error: {}", e);
+                            connection_broken = true;
+                            break;
                         }
                     }
                 }
-                Err(e) => {
-                    println!("Error receiving message: {}", e);
-                    break;
+
+                if connection_broken {
+                    println!("WebSocket connection lost, attempting to reconnect...");
+                }
+            }
+            Err(e) => {
+                consecutive_failures += 1;
+                eprintln!("Failed to connect to WebSocket (attempt {}): {}", consecutive_failures, e);
+                
+                // Apply exponential backoff with jitter
+                if consecutive_failures > 1 {
+                    println!("Waiting {} seconds before reconnecting...", reconnect_delay.as_secs());
+                    tokio::time::sleep(reconnect_delay).await;
+                    
+                    // Exponential backoff: double the delay, but cap it at max_reconnect_delay
+                    reconnect_delay = min(reconnect_delay * 2, max_reconnect_delay);
                 }
             }
         }
