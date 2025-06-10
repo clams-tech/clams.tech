@@ -24,34 +24,65 @@ A Sveltekit static website for clams.tech and LNURL server implementation that w
 
 - `cargo run`
 
-## Development with Docker (Website, Docs, Server)
+## Development with Docker (Website, Blog, Docs, Server)
 
-To run the main services together for local development and testing:
+To run all services together for local development and testing:
 
 ```bash
-# Start website, docs, and server
-docker compose -f docker-compose.dev.yml up --build
+# Start all services
+docker compose up --build
 
 # Start specific services only
-docker compose -f docker-compose.dev.yml up website server
+docker compose up website blog server
 
 # Stop all services
-docker compose -f docker-compose.dev.yml down
+docker compose down
 ```
 
 Services will be available at:
 - **Website**: http://localhost:5173
+- **Blog**: http://localhost:1111
 - **Docs**: http://localhost:3000  
 - **Server**: http://localhost:8080
 
-**Blog**: Run locally due to Docker complexity:
-```bash
-cd blog
-npm run serve
-```
-Blog will be available at: http://localhost:1111
-
 All services support hot reloading when you change files.
+
+## Quick Start
+
+For the simplest development experience, just run:
+
+```bash
+# Start all services
+docker compose up
+
+# Or run in background
+docker compose up -d
+
+# Stop all services
+docker compose down
+```
+
+## Common Development Commands
+
+```bash
+# View logs for all services
+docker compose logs
+
+# View logs for specific service
+docker compose logs blog
+
+# Follow logs in real-time
+docker compose logs -f
+
+# Restart a specific service
+docker compose restart blog
+
+# Rebuild and restart all services
+docker compose up --build
+
+# View running services
+docker compose ps
+```
 
 ## Acknowledgements
 

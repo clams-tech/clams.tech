@@ -3,7 +3,8 @@ title = "Clams Blog"
 description = "Personal Finance and Business Analytics for a Bitcoin Standard."
 
 # The URL the site will be built for
-base_url = "https://clams-blog-v2.surge.sh"
+# base_url = "https://clams-blog-v2.surge.sh"
+base_url = "http://localhost:1111"
 
 # The default language; used in feeds.
 default_language = "en"
