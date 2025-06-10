@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}{{ page.title }}{% endblock title %}
+{% block description %}{{ page.description }}{% endblock description %} {% block
+content %}
+<article class="max-w-3xl mx-auto">
+    <div class="mb-8">
+        <a
+            href="{{ config.base_url }}"
+            class="text-[#235811] hover:underline flex items-center font-bold"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+            </svg>
+            Back to Blog
+        </a>
+
+        <h1 class="text-4xl font-bold mt-4 mb-2">{{ page.title }}</h1>
+
+        <div class="text-sm text-[#212420]/70">
+            <time datetime="{{ page.date }}"
+                >{{ page.date | date(format="%B %e, %Y") }}</time
+            >
+            {% if page.updated %}
+            <span class="mx-1">·</span>
+            <span
+                >Updated
+                <time datetime="{{ page.updated }}"
+                    >{{ page.updated | date(format="%B %e, %Y") }}</time
+                ></span
+            >
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="prose max-w-none">{{ page.content | safe }}</div>
+</article>
+{% endblock content %}

@@ -8,6 +8,18 @@ A Sveltekit static website for clams.tech and LNURL server implementation that w
 - `bun i`
 - `bun dev`
 
+## Running the Blog Locally
+
+- `cd blog`
+- `npm install`
+- `npm run serve`
+
+## Running the Docs Locally
+
+- `cd docs`
+- `npm install`
+- `npm start`
+
 ## Running the LNURL Server Locally
 
 - `cargo run`

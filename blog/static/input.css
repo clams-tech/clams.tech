@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+/* -----
+FONTS
+----- */
+/* Diatype Semi Mono */
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-Regular.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-Regular.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-RegularItalic.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-RegularItalic.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-Medium.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-Medium.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-MediumItalic.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-MediumItalic.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-Bold.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-Bold.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Diatype Semi Mono";
+    src:
+        url("fonts/ABCDiatypeSemi-Mono-BoldItalic.woff2") format("woff2"),
+        url("fonts/ABCDiatypeSemi-Mono-BoldItalic.woff") format("woff"),
+        url("fonts/ABCDiatypeSemi-Mono-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Synt */
+@font-face {
+    font-family: "Synt";
+    src:
+        url("fonts/ABCSynt-Regular.woff2") format("woff2"),
+        url("fonts/ABCSynt-Regular.woff") format("woff"),
+        url("fonts/ABCSynt-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Synt";
+    src:
+        url("fonts/ABCSynt-RegularItalic.woff2") format("woff2"),
+        url("fonts/ABCSynt-RegularItalic.woff") format("woff"),
+        url("fonts/ABCSynt-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+/* Set Diatype Semi Mono font as default */
+html {
+    font-family: "Diatype Semi Mono";
+    background: #f1eee7;
+    color: #212420;
+}
+
+h1 {
+    font-family: "Synt", sans-serif;
+}
+
+hr {
+    border-color: color-mix(in oklab, #212420 20%, transparent);
+}
+
+li::marker {
+    color: #212420;
+}
+
+/* Responsive Video Container */
+.responsive-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 1.5rem; /* Add some space below the video */
+}
+
+/* Style for iframe inside responsive-video container */
+.responsive-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(33, 36, 32, 0.1); /* Subtle shadow using your brand color */
+}
+
+/* Focus state for accessibility */
+.responsive-video iframe:focus {
+    outline: 2px solid #212420;
+    outline-offset: 2px;
+}
+
+.image-caption {
+    font-size: small;
+    text-align: center;
+}

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="{{ lang }}">
+    <head>
+        <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+        <meta
+            name="description"
+            content="{% block description %}{{ config.description }}{% endblock description %}"
+        />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <!-- Main CSS styling (Tailwind) -->
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+
+        {% block extra_head %}{% endblock extra_head %}
+    </head>
+
+    <body class="bg-[#f1eee7] text-[#212420] min-h-screen flex flex-col pt-16">
+        <main class="container mx-auto px-4 py-6 flex-grow">
+            {% block content %}{% endblock content %}
+        </main>
+
+        <footer aria-labelledby="footer-heading" class="px-4 pt-4 pb-4">
+            <div class="mt-4 mb-4 border-b border-[#212420]/20"></div>
+            <div class="m-auto flex max-w-7xl flex-col">
+                <div class="grid gap-8 md:grid-cols-2">
+                    <div class="w-full">
+                        <img
+                            class="max-w-[200px]"
+                            src="/clams-seal.svg"
+                            alt="Clams Seal"
+                        />
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-lg font-bold">Resources</p>
+                                <ul>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/downloads"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >App</a
+                                        >
+                                    </li>
+                                    <li class="mt-1">
+                                        <a
+                                            href="{{ config.extra.docs_url }}"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Docs</a
+                                        >
+                                    </li>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/faq"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >FAQ</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-lg font-bold">Company</p>
+                                <ul>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/about"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >About</a
+                                        >
+                                    </li>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/brand"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Brand</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-lg font-bold">Legal</p>
+                                <ul>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/privacy"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Privacy Policy</a
+                                        >
+                                    </li>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/terms"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Terms of Service</a
+                                        >
+                                    </li>
+                                    <li class="mt-1">
+                                        <a
+                                            href="https://clams.tech/disclaimer"
+                                            class="hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Disclaimer</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between md:mt-0">
+                            <div class="flex items-center gap-4">
+                                <a
+                                    class="flex hover:underline"
+                                    href="https://nostr.at/{{ config.extra.nostr_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="/nostr.svg"
+                                        alt="Nostr"
+                                        class="mr-2 h-6 w-6"
+                                    />
+                                </a>
+                                <a
+                                    class="flex hover:underline"
+                                    href="{{ config.extra.discord_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="/discord.svg"
+                                        alt="Discord"
+                                        class="mr-2 h-6 w-6"
+                                    />
+                                </a>
+                                <a
+                                    class="flex hover:underline"
+                                    href="{{ config.extra.github_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="/github.svg"
+                                        alt="GitHub"
+                                        class="mr-2 h-6 w-6"
+                                    />
+                                </a>
+                                <a
+                                    class="flex hover:underline"
+                                    href="{{ config.extra.x_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="/x.svg"
+                                        alt="X"
+                                        class="mr-2 h-6 w-6"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 mb-4 border-b border-[#212420]/20"></div>
+            <div class="mt-4 grid md:grid-cols-2 md:gap-8">
+                <div></div>
+                <div>
+                    <p class="text-[#212420]/60">
+                        © 2024 Clams LLC. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
