@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile.website.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./website:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.docs.dev  
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./docs:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  # blog:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.blog.dev
+  #   ports:
+  #     - "1111:1111"
+  #   volumes:
+  #     - ./blog:/app
+  #   environment:
+  #     - SERVE_OPTS=--port 1111
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/target
+    environment:
+      - RUST_LOG=debug
+      - DATA_DIR=/app/data
+      - DOMAIN=localhost
+      - PHOENIXD_HOST=localhost
+      - PHOENIXD_PORT=9740
+    depends_on:
+      - website
+      - docs
+
+networks:
+  default:
+    driver: bridge

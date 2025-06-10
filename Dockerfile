@@ -1,4 +1,4 @@
-# Build frontend
+# Build website
 FROM node:20-slim AS website-builder
 WORKDIR /app/website
 COPY website/package*.json ./

@@ -1,0 +1,22 @@
+FROM node:20-slim
+
+# Install Zola for the correct architecture
+RUN apt-get update && apt-get install -y curl \
+    && ARCH=$(dpkg --print-architecture) \
+    && if [ "$ARCH" = "amd64" ]; then \
+         curl -L https://github.com/getzola/zola/releases/download/v0.18.0/zola-v0.18.0-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin; \
+       elif [ "$ARCH" = "arm64" ]; then \
+         curl -L https://github.com/getzola/zola/releases/download/v0.18.0/zola-v0.18.0-aarch64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin; \
+       fi \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY blog/package*.json ./
+RUN npm install
+COPY blog .
+
+# Create public directory and copy input.css from static to public
+RUN mkdir -p public && ls -la static/ && cp static/input.css public/input.css 2>/dev/null || echo "input.css not found, will be created by zola"
+
+EXPOSE 1111
+CMD ["sh", "-c", "zola build && mkdir -p public && cp static/input.css public/input.css 2>/dev/null || touch public/input.css && npm run serve -- --port 1111"]
