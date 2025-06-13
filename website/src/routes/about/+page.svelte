@@ -33,16 +33,5 @@
 				businesses, and finance professionals.
 			</p>
 		</div>
-
-		<div class="grid gap-8 md:grid-cols-2">
-			<div>
-				<p class="text-2xl font-bold">Stay Updated</p>
-				<p>
-					Join our mailing list for the latest Clams updates. As with everything we do, your privacy
-					is our priority— there will be no data sharing. Easy unsubscribe at any time.
-				</p>
-			</div>
-			<MailingListForm />
-		</div>
 	</div>
 </section>

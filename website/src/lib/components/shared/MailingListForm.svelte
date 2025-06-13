@@ -1,17 +1,21 @@
-<div id="mc_embed_shell">
-	<div id="mc_embed_signup" class="w-full max-w-md">
+<script lang="ts">
+	import Button from '$lib/components/shared/Button.svelte';
+</script>
+
+<div id="mc_embed_shell" class="w-full rounded-lg border border-gray-500 p-6 bg-white">
+	<div id="mc_embed_signup" class="w-full">
 		<form
 			action="https://tech.us14.list-manage.com/subscribe/post?u=f8a848454e4e2bfaf4577f68f&amp;id=efb2bbd0c2&amp;f_id=002284e0f0"
 			method="post"
 			id="mc-embedded-subscribe-form"
 			name="mc-embedded-subscribe-form"
-			class="validate space-y-4"
+			class="validate space-y-6"
 			target="_self"
 			novalidate
 		>
 			<div id="mc_embed_signup_scroll">
-				<div class="mc-field-group flex flex-col space-y-2">
-					<label for="mce-EMAIL" class="text-sm font-medium"
+				<div class="mc-field-group flex flex-col space-y-3">
+					<label for="mce-EMAIL" class="text-sm font-bold"
 						>Email Address <span class="text-red-500">*</span></label
 					>
 					<input
@@ -19,7 +23,7 @@
 						name="EMAIL"
 						id="mce-EMAIL"
 						required
-						class="w-full rounded-md border bg-white px-4 py-2 focus:ring focus:outline-none"
+						class="w-full rounded-xl border border-gray-500 bg-white px-4 py-3 focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-all"
 						placeholder="Enter your email"
 					/>
 				</div>
@@ -34,14 +38,15 @@
 				<div aria-hidden="true" class="hidden">
 					<input type="text" name="b_f8a848454e4e2bfaf4577f68f_efb2bbd0c2" tabindex="-1" value="" />
 				</div>
-				<div class="mt-2">
-					<input
+				<div class="mt-4">
+					<button
 						type="submit"
 						name="subscribe"
 						id="mc-embedded-subscribe"
-						class="inline-flex items-center justify-center rounded-xl bg-black px-4 py-3 text-white transition-colors duration-200 hover:bg-black/90 active:bg-black/80 disabled:cursor-not-allowed disabled:opacity-50"
-						value="Subscribe"
-					/>
+						class="w-full inline-flex items-center justify-center rounded-xl bg-black text-white hover:bg-black/90 active:bg-black/80 px-4 py-3 transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+					>
+						<p class="leading-none font-bold">Subscribe</p>
+					</button>
 				</div>
 			</div>
 		</form>
