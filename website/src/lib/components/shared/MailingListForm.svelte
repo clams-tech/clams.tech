@@ -1,8 +1,4 @@
-<script lang="ts">
-	import Button from '$lib/components/shared/Button.svelte';
-</script>
-
-<div id="mc_embed_shell" class="w-full rounded-lg border border-gray-500 p-6 bg-white">
+<div id="mc_embed_shell" class="w-full rounded-lg border border-gray-500 bg-white p-6">
 	<div id="mc_embed_signup" class="w-full">
 		<form
 			action="https://tech.us14.list-manage.com/subscribe/post?u=f8a848454e4e2bfaf4577f68f&amp;id=efb2bbd0c2&amp;f_id=002284e0f0"
@@ -23,7 +19,7 @@
 						name="EMAIL"
 						id="mce-EMAIL"
 						required
-						class="w-full rounded-xl border border-gray-500 bg-white px-4 py-3 focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-all"
+						class="w-full rounded-xl border border-gray-500 bg-white px-4 py-3 transition-all focus:border-black focus:ring-1 focus:ring-black focus:outline-none"
 						placeholder="Enter your email"
 					/>
 				</div>
@@ -43,7 +39,7 @@
 						type="submit"
 						name="subscribe"
 						id="mc-embedded-subscribe"
-						class="w-full inline-flex items-center justify-center rounded-xl bg-black text-white hover:bg-black/90 active:bg-black/80 px-4 py-3 transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+						class="inline-flex w-full items-center justify-center rounded-xl bg-black px-4 py-3 text-white transition-colors duration-200 hover:bg-black/90 active:bg-black/80 disabled:cursor-not-allowed disabled:opacity-50"
 					>
 						<p class="leading-none font-bold">Subscribe</p>
 					</button>
