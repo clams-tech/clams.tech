@@ -16,5 +16,5 @@
 	<div class="mx-4 border-b"></div>
 	<Features />
 	<div class="mx-4 border-b"></div>
-	<MailingListSection />
+	<MailingList />
 </div>
