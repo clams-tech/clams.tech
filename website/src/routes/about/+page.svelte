@@ -1,7 +1,3 @@
-<script lang="ts">
-	import MailingListForm from '$lib/components/shared/MailingListForm.svelte';
-</script>
-
 <!-- About -->
 <section class="px-4 py-16">
 	<div class="mt-1 mb-16 border-b"></div>
